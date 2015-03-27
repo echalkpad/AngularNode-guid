@@ -1,0 +1,51 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>Actions made</h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section>
+                                <table class="table table-bordered table-hover smart-form">
+                                    <thead>
+                                        <tr>
+                                            <th>Record Date</th>
+                                            <th>Comments/Actions</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="action in actions">
+                                            <td data-ng-bind="action['@RecordDate'] | date:'dd/MM/yyyy'"></td>
+                                            <td data-ng-bind="action['@Comments']"></td>
+                                            <td class="text-center">
+                                                <i class="glyphicon glyphicon-trash action-icon" data-ng-click="remove($event);"></i>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+
+                        
+
+                    </div>
+
+
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

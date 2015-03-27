@@ -1,0 +1,109 @@
+﻿<div class="well well-sm">
+    <h2 style="padding-left: 15px; float: left; margin-top: 5px;">
+        <i class="fa fa-database "></i>
+        Medications
+    </h2>
+
+    <ul class="nav navbar-nav pull-right show">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-default ">Showing <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href-void="" href="#">Summury</a>
+                </li>
+                <li>
+                    <a href-void="" href="#">All</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 34px;">
+                    <!--<i title="Expand all" class="glyphicon" style="cursor: pointer;" ng-click="expandAll(!isExpandAll); " data-ng-class="{'glyphicon-chevron-down': isExpandAll, 'glyphicon-chevron-up': !isExpandAll}"></i>-->
+                </th>
+                <th class="text-center" style="width: 65px;"></th>
+                <th>Disp</th>
+                <th>Medication</th>
+                <th>Qty</th>
+                <th>Prescribed</th>
+                <th>Rpt</th>
+                <th style="width: 110px;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat-start="script in scripts" data-ng-init="script.showMore=false;">
+                <td class="text-center" >
+                    <i class="glyphicon" style="cursor: pointer;" ng-click="script.showMore = !script.showMore; $event.stopPropagation()" data-ng-class="{'glyphicon-chevron-down': script.showMore, 'glyphicon-chevron-up': !script.showMore}"></i>
+                </td>
+                <td >
+                    <i data-tooltip-placement="top" data-tooltip="Active" class=" text-success fa fa-check"></i>
+                    <i data-tooltip-placement="top" data-tooltip="Held" class="text-warning fa fa-pause"></i>
+                    <i data-tooltip-placement="top" data-tooltip="Have Reminder" class="text-info fa fa-bell"></i>
+                </td>
+                <td>
+                    <span data-ng-bind="script.DateDispensed | date:'dd/MM/yyyy'"></span><br/>
+                    <span data-ng-bind="script.ScriptId"></span>
+                </td>
+                <td>
+                    <strong data-ng-bind="script.FullDrugName"></strong><br/>
+                    <span data-ng-bind="script.Directions"></span>
+                </td>
+                <td data-ng-bind="script.QuantityPrescribed"></td>
+                <td>
+                    <!--<span data-ng-bind="script.PrescriberId"></span>-->
+                    <span>Jaffer, Mo</span>
+                    <br /><span data-ng-bind="script.DatePrescribed | date:'dd/MM/yyyy'"></span>
+                </td>
+                <td>{{script.RepeatNumber}}/{{script.NumberOfRepeats}}</td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">Action</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        
+                        <ul class="dropdown-menu" role="menu" style="right: 0; left: auto;">
+                            <li><a href-void="">Make Active</a></li>
+                            <li><a href-void="">Add Held</a></li>
+                            <li><a href-void="">Reminder Settings</a></li>                        
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <tr class="show-more info" ng-class="{'hidden': (script.showMore == false)}" data-ng-repeat-end>
+                <td colspan="8" style="padding-left: 33px; padding-right: 15px; padding-top: 15px;">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <strong>Cycle:</strong> 21
+                        </div>
+                        <div class="col-xs-3">
+                            <strong>On File:</strong> 0
+                        </div>
+                        <div class="col-xs-3">
+                            <strong>Available:</strong>1
+                        </div>
+                        <div class="col-xs-3">
+                            <strong>Next Due</strong> 03/03/2015
+                        </div>
+                    </div>
+                    <div class="clearfix margin-bottom-10"></div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <strong>OriginalScriptId: </strong>{{script.OriginalScriptId}}
+                        </div>
+                        <div class="col-xs-3">
+                            <strong>PBS:</strong> {{script.PbsCode}}
+                        </div>
+                        <div class="col-xs-3"></div>
+                    </div>
+                  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

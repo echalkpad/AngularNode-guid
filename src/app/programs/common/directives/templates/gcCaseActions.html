@@ -1,0 +1,35 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-togglebutton="false"
+     data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2> Actions </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+            <div class="alert alert-warning"
+                 ng-show="programForm.$invalid">
+                <strong>Incomplete case</strong>
+                <br/>
+                More information is required before these actions are available.
+            </div>
+
+            <div ng-form="{{name}}" novalidate>
+                <div class="btn-group">
+                    <button class="btn btn-default" style="width: 100px;"
+                            ng-disabled="programForm.$invalid">Print
+                    </button>
+                    <button class="btn btn-warning" style="width: 100px;"
+                            ng-disabled="programForm.$invalid">Email
+                    </button>
+                    <button class="btn btn-primary" style="width: 100px;"
+                            ng-disabled="programForm.$invalid" ng-click="save()">Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

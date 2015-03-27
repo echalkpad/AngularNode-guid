@@ -1,0 +1,192 @@
+<div>
+    <div class="well" id="programHeader">
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 small-minimized toogle-show-minimized animated fadeInDown">
+
+                <div class="row" style="margin: 5px 0 0;">
+                    <div class="">
+
+                        <a title="Go to Patient details" data-ng-href="/#/patient/{{patientId}}/{{patient.LastName}}">
+                            <h3 style="margin: 0; padding-bottom: 5px;" class=" ">
+                                <span class="label label-info">#{{ programDocumentId > 0 ? programDocumentId : 'new' }}</span>
+                                {{patient.FirstName}} <strong>{{patient.LastName}}</strong>
+                            </h3>
+                        </a>
+
+
+                        <div class="hide-minimized">
+                            <div class="programHeaderLinks">
+                                <ul  class="nav navbar-nav programHeaderLinksList">
+                                    <li>
+                                        <a href="#" data-toggle="modal" data-target="#myModal">Edit</a>
+                                    </li>
+                                    <li dropdown class="dropdown dropdown-large">
+                                        <a dropdown-toggle href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-ellipsis-h"></i>Actions
+                                        </a>
+                                        <gc-services-list patient-id="patientId" class="dropdown-menu dropdown-menu-large row program-header-dropdown-large" style="top: 75px; min-width: 1000px;"></gc-services-list>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 hide-minimized ">
+                    <p>
+                        <i class="fa fa-home"></i>&nbsp;&nbsp;
+                        {{patient.PatientAddressLine1}},
+                        {{patient.PatientSuburb}},
+                        {{patient.PatientPostcode}},
+                        {{patient.PatientState}}
+                    </p>
+
+                    <p>
+                        <i class="fa fa-phone"></i>&nbsp;&nbsp;
+                        {{patient.PhoneNumber}}
+                    </p>
+
+                    <p>
+                        <i class="fa fa-envelope" data-tooltip-placement="top"
+                           data-tooltip="Click to send an email to the patient"></i>&nbsp;&nbsp;
+                        {{patient.EmailAddress}}
+                    </p>
+
+                    <p>
+                        <i class="fa fa-list-alt"></i>&nbsp;&nbsp;
+                        {{patient.DVANumber}}
+                    </p>
+
+                    <p>
+                        <label>Date/Time:</label>&nbsp;
+                        {{preparationDate | date:'dd-MM-yyyy hh:mm a'}}
+                    </p>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 hide-minimized ">
+                    <p>
+                        <i class="fa {{patient.Gender | genderIcon}}"></i>&nbsp;&nbsp;
+                        {{patient.Gender | gender}}
+                    </p>
+
+                    <p>
+                        <i class="fa fa-birthday-cake"></i>&nbsp;&nbsp;
+                        {{patient.DateOfBirth | gcDateOfBirth }}
+                    </p>
+
+                    <p>
+                        <i class="fa fa-mobile" data-tooltip-placement="top"
+                           data-tooltip="Click to send an SMS message to the patient"></i>&nbsp;&nbsp;
+                        {{patient.AlternateContactNumber}}
+                    </p>
+
+                    <p>
+                        <i class="fa  fa-list-alt"></i>&nbsp;&nbsp;
+                        {{patient.MedicareNumber}}
+                    </p>
+
+                    <p data-ng-show="displayNdss">
+                        <label>NDSS #:</label>&nbsp;
+                        {{ndss}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 toogle-show-minimized animated fadeInDown">
+                <div ng-form="caseStatus" novalidate style="margin-bottom: 10px;">
+                    <div class="case-status btn-group btn-group-justified1">
+                        <label class="btn btn-default" data-ng-repeat="status in $parent.vm.statusList"
+                               ng-model="$parent.$parent.vm.caseStatus" btn-radio="status">{{status.text}}</label>
+                    </div>
+
+                </div>
+                <div class="margin-top:15px;">
+                    <div ng-include="customActionsTemplate"></div>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 toogle-show-minimized animated fadeInDown">
+                <div ng-form="caseActions" novalidate style="margin-bottom: 5px;">
+                    <div>
+                        <!--<button class="btn btn-default btn-labeled btn-headerE"-->
+                        <!--ng-disabled="$parent.programForm.$invalid" ng-click="$parent.vm.print()">-->
+                        <!--<span class="btn-label"><i class="glyphicon glyphicon-print"></i></span>Print-->
+                        <!--</button>-->
+                        <gc-print-button></gc-print-button>
+                        <button class="btn btn-default btn-labeled btn-headerE"
+                                ng-disabled="$parent.programForm.$invalid" ng-click="$parent.vm.email()">
+                            <span class="btn-label"><i class="glyphicon glyphicon-envelope"></i></span>Email
+                        </button>
+                        <button class="btn btn-primary btn-labeled btn-headerE" type="submit"
+                                ng-disabled="$parent.programForm.$invalid" ng-click="$parent.vm.save()">
+                            <span class="btn-label"><i class="glyphicon glyphicon-floppy-save"></i></span>Save
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 toogle-show-minimized animated fadeInDown">
+
+                <div style=" width: 100%;">
+                    <input class="form-control hide-minimized" ng-hide="{{displayPharmacistInitials === 'false'}}"
+                           style="margin-bottom: 5px;" placeholder="Your Initials" type="text" name="pharmacistInitials"
+                           data-ng-model="pharmacistInitials">
+                </div>
+
+
+                <div class="clearfix"></div>
+                <div class="alert alert-danger" style=""
+                     ng-show="$parent.programForm.$invalid">
+                    <strong><i class="fa fa-close"></i>Something's missing</strong><br/>
+                    <small>One or more required fields have not been completed.</small>
+                </div>
+                <div class="alert alert-success" style=""
+                     ng-hide="$parent.programForm.$invalid">
+                    <strong><i class="fa fa-check"></i>Looking good</strong><br/>
+                    <small>All required information has been provided.</small>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true" style="display: none; top: 60px;">
+        <div class="modal-dialog">
+            <form name="editForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Patient Details</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <gc-patient-details-form name="patientDetailsForm"
+                                                 patient="patient"
+                                                 display-ndss="{{displayNdss}}"
+                                                 ndss="ndss"></gc-patient-details-form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" ng-disabled="editForm.$invalid"
+                                data-dismiss="modal">
+                            OK
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <gc-telerik-report-viewer-modal program-document-id="programDocumentId"
+                                    report-name="reportName"></gc-telerik-report-viewer-modal>
+</div>

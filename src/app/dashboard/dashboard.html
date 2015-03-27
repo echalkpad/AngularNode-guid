@@ -1,0 +1,44 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+
+    <div class="row">
+        <big-breadcrumbs items="['Dashboard', 'My Dashboard']"
+                         class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
+    </div>
+    <!-- widget grid -->
+    <section id="widget-grid" style="margin-top: 0px;" widget-grid class="container-fluid">
+
+        <div class="row">
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <gc-case-stats statistics="vm.caseStatistics"></gc-case-stats>
+            </article>
+
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <gc-news></gc-news>
+            </article>
+        </div>
+        <div class="row">
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <gc-subscription subscription="vm.subscription"></gc-subscription>
+            </article>
+
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <gc-program-resources></gc-program-resources>
+            </article>
+        </div>
+        <div class="row">
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <gc-opportunities measurements="vm.opportunities.measurements"></gc-opportunities>
+            </article>
+
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                <gc-dashboard-calendar></gc-dashboard-calendar>
+            </article>
+
+        </div>
+
+    </section>
+    <!-- end widget grid -->
+
+</div>
+<!-- END MAIN CONTENT -->

@@ -1,0 +1,295 @@
+#programHeader {
+    position: absolute;
+    top: 10px;
+    width: calc(100% - 66px);
+    margin-left: 19px;
+    z-index: 1031;
+     transition: 0.2s height ease;
+    -moz-transition: 0.2s height ease;
+    -webkit-transition: 0.2s height ease;
+    -o-transition: 0.2s height ease;
+    -ms-transition: 0.2s height ease;
+
+}
+
+#programForm #widget-grid {
+    margin-top: 285px;
+}
+
+#programHeader .alert {
+    margin-bottom: 0px;
+}
+/*minimized*/
+#programHeader.minimized {
+    position: fixed;
+    height: 100px;
+    width: calc(100% - 287px);
+    top: 0px;
+}
+
+
+#programHeader.minimized .small-minimized {
+    width: 25%;
+}
+
+#programHeader.minimized .hide-minimized {
+    display: none;
+}
+
+#programHeader .btn-header {
+    width: calc(33.33333333% - 2.5px);
+    padding-left: 0px;
+}
+
+.btn-status {
+    /*width: 33.33333333%;*/
+}
+.btn-group.btn-block {
+    display: table;
+}
+.btn-group.btn-block > .btn {
+    display: table-cell;
+}
+
+#programHeader .btn-header .btn-label {
+    left: -21px;
+}
+
+#widget-grid {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 240px;
+}
+
+.calendarp #widget-grid {
+    margin-top:0;
+}
+
+.programHeaderLinks {
+    min-height: 0;
+    margin: 0;
+}
+
+.programHeaderLinksList li a {
+    padding: 10px;
+}
+
+.program-header-dropdown-large {
+    padding: 10px 0;
+}
+
+.menu-on-top #programHeader {
+    right: 20px;
+    left: 20px;
+}
+
+
+
+.bgl-gauge {
+    margin-top: 35px;
+    position: relative;
+}
+
+.bgl-gauge .progress-bar {
+    height: 20px;
+}
+
+.bgl-gauge .current-pointer {
+    position: absolute;
+    color: rgb(40, 167, 221);
+    opacity: 0.7;
+    font-size: 24px;
+    top: -15px;
+    z-index: 9;
+    margin-left: -10px;
+     transition: 0.2s all ease;
+    -moz-transition: 0.2s all ease;
+    -webkit-transition: 0.2s all ease;
+    -o-transition: 0.2s all ease;
+    -ms-transition: 0.2s all ease;
+    overflow: hidden;
+}
+.bgl-gauge-grid {
+    position: relative;
+    top: -25px;
+    
+}
+
+.bgl-gauge-cell {
+    /*width: 6.6666666666%;*/
+    height: 30px;
+    border-left: 1px solid #ADADAD;
+    border-top: 1px solid #ADADAD;
+    border-bottom: 1px solid #ADADAD;
+    float: left;
+    border-collapse: collapse;
+}
+.bgl-gauge-cell:last-of-type {
+    border-right: 1px solid #ADADAD;
+}
+    .bgl-gauge-cell span, .lastIndex {
+        position: absolute;
+        top: -25px;
+        margin-left: -5px;
+    }
+
+@media (min-width: 980px) and (max-width: 1200px) {
+
+    .menu-on-top #programHeader {
+        right: 20px;
+        left: 20px;
+    }
+
+    #widget-grid {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 370px;
+    }
+    /*div{border: 1px solid blue;}*/
+}
+
+@media (min-width: 881px) and (max-width: 979px) {
+
+    #programHeader {
+        right: 20px;
+        left: 20px;
+    }
+
+    #widget-grid {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 380px;
+    }
+    /*div{border: 1px solid red;}*/
+}
+
+@media (min-width: 768px) and (max-width: 880px) {
+
+    #programHeader {
+        right: 5px;
+        left: 5px;
+    }
+
+    #widget-grid {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 370px;
+    }
+    /*div{border: 1px solid green;}*/
+}
+
+@media (min-width:631px) and (max-width: 767px) {
+    .menu-on-top #programHeader {
+        right: 5px;
+        left: 5px;
+    }
+
+    #programHeader {
+        right: 5px;
+        left: 5px;
+    }
+
+    #programForm #widget-grid {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 560px;
+    }
+    /*div{border: 1px solid purple;}*/
+}
+
+
+@media (max-width: 630px) {
+    .menu-on-top #programHeader {
+        right: 5px;
+        left: 5px;
+    }
+
+    #programHeader {
+        right: 5px;
+        left: 5px;
+    }
+
+    #programForm #widget-grid {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 590px;
+    }
+    /*div{border: 1px solid purple;}*/
+}
+
+.checkbox-fix label.checkbox {
+    margin-top: -10px;
+}
+
+.vertical-middle {
+    vertical-align: middle;
+    line-height: 32px;
+}
+
+.bold {
+    font-weight: bold!important;
+}
+
+.programm-help {
+    font-size: 18px;
+    vertical-align: middle;
+    margin-left: 25px;
+}
+
+.table.blood-assessment>tbody>tr>td {
+    border-right-width: 1px;; 
+}
+
+.table.blood-assessment>tbody>tr>td:first-child {
+    border-right-width: 1px;; 
+}
+
+.blood-pressure-normal {
+    background: #72C248;
+}
+
+.blood-pressure-high-normal {
+    background: #ACCE4C;
+}
+
+.blood-pressure-mild-hypertension {
+    background: #ECA058;
+}
+
+.blood-pressure-moderate-hypertension {
+    background: #DC5278;
+}
+
+.blood-pressure-severe-hypertension {
+    background: #EC6458;
+}
+.table.blood-assessment strong {
+    color: #FFF;    
+}
+
+label.input {
+    width: 100%;
+}
+
+.technique-item {
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.technique-item .active.yes {
+    color: #fff;
+    background-color: #5b835b;
+    border-color: #4c6e4c;
+}
+
+.technique-item .active.no {
+    color: #fff;
+    background-color: #c79121;
+    border-color: #b1811d;
+}
+
+.case-status .btn.active, .case-status .btn:active {
+    color: #fff;
+    background-color: #3276b1;
+    border-color: #2c699d;    
+}

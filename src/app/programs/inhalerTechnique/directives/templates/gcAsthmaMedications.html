@@ -1,0 +1,79 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false"
+     data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false"
+     data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Which inhaler is being assessed today? <i class="fa fa-lg fa-fw fa-exclamation-triangle"
+                                                      style="color:#d9534f;" ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+        <div class="widget-body">
+            <form name="{{name}}" novalidate>
+                <fieldset>
+                    <div data-ng-hide="IsNewRecordsEnabled">
+                        <table class="table table-bordered table-striped table-hover smart-form has-tickbox checkbox-fix">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Prescriber</th>
+                                    <th>Medication</th>
+                                    <th>Directions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-ng-repeat="medication in medications">
+                                    <td>
+                                        <label class="checkbox">
+                                            <input type="checkbox" data-ng-model="medication['@Selected']" data-ng-change="selectedChanged()" data-ng-true-value="true" data-ng-false-value="false" name="checkbox-inline">
+                                            <i></i>
+                                        </label>
+                                    </td>
+                                    <td data-ng-bind="medication['@PrescriberGivenName']"></td>
+                                    <td data-ng-bind="medication['@FullDrugName']"></td>
+                                    <td data-ng-bind="medication['@Directions']"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="margin-top: 25px" class="pull-right">
+                            <span>Select an existing medication or</span>
+                            <button class="btn btn-default btn-labeled" type="submit" ng-click="add()">
+                                <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Add New Medication
+                            </button>
+                        </p>
+                    </div>
+
+                    <div class="well" data-ng-show="IsNewRecordsEnabled">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="control-label">Prescriber</label>
+                                <input type="text" data-ng-class="{'error': {{name}}.newPrescriber.$invalid}" class="form-control" name="newPrescriber" placeholder="Prescriber" data-ng-model="newPrescriber" data-ng-required="IsNewRecordsEnabled">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label">Medication</label>
+                                <input type="text" data-ng-class="{'error': {{name}}.newPrescriber.$invalid}" class="form-control" name="newMedication" placeholder="Medication" data-ng-model="newMedication" data-ng-required="IsNewRecordsEnabled">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="control-label">Directions</label>
+                                <input type="text" data-ng-class="{'error': {{name}}.newPrescriber.$invalid}" class="form-control" name="newDirections" placeholder="Directions" data-ng-model="newDirections" data-ng-required="IsNewRecordsEnabled">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div style="margin-top: 10px" class="pull-right">
+                            <a href="javascript://" data-ng-click="cancel()">Select Existing Medication or &nbsp;&nbsp;</a>
+                            <button class="btn btn-primary btn-labeled" type="submit" ng-click="save()">
+                                <span class="btn-label"><i class="glyphicon glyphicon-floppy-save"></i></span>Save New Medication
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

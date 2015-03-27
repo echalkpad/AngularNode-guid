@@ -1,0 +1,110 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Add New Patient</h3>
+</div>
+<div class="modal-body">
+    <form name="newPatientForm" novalidate>
+        <fieldset>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.firstname.$invalid }">
+                        <input type="text" class="form-control input-md" placeholder="First Name"
+                               name="firstname"
+                               ng-model="patient.firstname" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.lastname.$invalid }">
+                        <input type="text" placeholder="Last Name" name="lastname"
+                               class="form-control input-md"
+                               ng-model="patient.lastname" required>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.suburb.$invalid }">
+                        <input type="text" placeholder="Suburb" name="suburb" class="form-control input-md"
+                               ng-model="patient.suburb">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.address1.$invalid }">
+                        <input type="text" class="form-control input-md" placeholder="Address Line 1"
+                               name="address1"
+                               ng-model="patient.address1">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.address2.$invalid }">
+                        <input type="text" placeholder="Address Line 2" name="address2"
+                               class="form-control input-md"
+                               ng-model="patient.address2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.state.$invalid }">
+                        <select class="form-control input-md" placeholder="State" name="state"
+                                ng-model="patient.state">
+                            <option>NSW</option>
+                            <option>QLD</option>
+                            <option>WA</option>
+                            <option>VIC</option>
+                            <option>NT</option>
+                            <option>SA</option>
+                            <option>TAS</option>
+                            <option>ACT</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.postcode.$invalid }">
+                        <input type="text" placeholder="Postcode" name="postcode"
+                               class="form-control input-md"
+                               ng-model="patient.postcode">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group" ng-class="{ 'has-error': newPatientForm.dateOfBirth.$invalid }">
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input gc-validation-rule="dateOfBirth" type='text' gc-datepicker
+                                   class="form-control input-md" placeholder="Date Of Birth"
+                                   name="dateOfBirth" ng-model="dateOfBirth"
+                                   data-date-format="dd/mm/yy" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" placeholder="Medicare Number" name="MedicareNumber" class="form-control input-md" ng-model="patient.medicareNumber">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text" placeholder="Phone Number" name="PhoneNumber" class="form-control input-md" ng-model="patient.phoneNumber">
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-labeled btn-success" data-ng-disabled="newPatientForm.$invalid" ng-click="save()"><span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Save </button>
+    <button class="btn btn-labeled btn-default" ng-click="cancel()"><span class="btn-label"><i class="glyphicon glyphicon-repeat"></i></span>Cancel </button>
+
+</div>

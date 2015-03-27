@@ -1,0 +1,83 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="" data-widget-collapsed="true">
+
+    <header>
+        <h2>
+            Glycosylated Haemoglobin (HbA1c) Measurements <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color: #d9534f;"
+                                                             ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <form name="Hba1cMeasurements" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="alert  alert-info">
+                                The HbA1c test is not the same as a Blood Glucose Level test. While your BGL can provide a snapshot of your immediate condition, your HbA1c gives a better overall picture of your condition as it reflects your average blood glucose levels over the past 10-12 weeks.
+                            </div>
+                            <div class="alert  alert-info">
+                                The HbA1c target range for most people with diabetes will be between 6.5-7% (48-53mmol/mol) but your doctor may choose a different target that is more personalised and appropriate for you.
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button class="btn btn-labeled btn-success" data-ng-disabled="HbA1cIsAddRecordsEnabled" data-ng-click="add()"><span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Add</button>
+                                <button class="btn btn-labeled btn-primary" data-ng-disabled="!HbA1cIsAddRecordsEnabled" data-ng-click="save()"><span class="btn-label"><i class="glyphicon glyphicon-floppy-save"></i></span>Save</button>
+                            </div>
+
+                            <div class="form-group" data-ng-class="{'has-error': {{name}}.mydate.$invalid && HbA1cIsAddRecordsEnabled}">
+                                <label>Date of HbA1c test:</label>
+                                <div class="input-group">
+                                    <input type="text" name="mydate" data-ng-disabled="!HbA1cIsAddRecordsEnabled" placeholder="Select a date" class="form-control" data-ng-model="measurement.HbA1cRecordDate" data-date-format="dd/mm/yy" gc-datepicker ng-required="HbA1cIsAddRecordsEnabled" shown-validation>
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-3 vertical-middle">
+                                        <label>Your HbA1c test result is:</label>
+                                    </div>
+                                    <div class="col-xs-2" data-ng-class="{'has-error': {{name}}.HbA1cPercentResult.$invalid && HbA1cIsAddRecordsEnabled}">
+                                        <input type="number" data-ng-disabled="!HbA1cIsAddRecordsEnabled" placeholder="HbA1cPercentResult" name="HbA1cPercentResult" min="1" class="form-control input-md" data-ng-model="measurement.HbA1cPercentResult" ng-required="HbA1cIsAddRecordsEnabled" shown-validation />
+                                    </div>
+                                    <div class="col-xs-1 vertical-middle">
+                                        <small>%</small>
+                                    </div>
+                                    <div class="col-xs-1 vertical-middle">
+                                        <small>or</small>
+                                    </div>
+                                    <div class="col-xs-2" data-ng-class="{'has-error': {{name}}.HbA1cMeasureResult.$invalid && HbA1cIsAddRecordsEnabled}">
+                                        <input type="number" data-ng-disabled="!HbA1cIsAddRecordsEnabled" placeholder="HbA1cMeasureResult" name="HbA1cMeasureResult" min="1" class=" form-control input-md" data-ng-model="measurement.HbA1cMeasureResult" ng-required="HbA1cIsAddRecordsEnabled" shown-validation />
+                                    </div>
+                                    <div class="col-xs-1 vertical-middle">
+                                        <small>mmol/mol</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea placeholder="HbA1cNotes" data-ng-disabled="!HbA1cIsAddRecordsEnabled" data-ng-model="measurement.HbA1cNotes" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" data-ng-class="{'has-error': {{name}}.HbA1cConductedBy.$invalid && HbA1cIsAddRecordsEnabled}">
+                                <label class="bold">Conducted/Recorded by:</label>
+                                <input placeholder="Conducted/Recorded by" data-ng-disabled="!HbA1cIsAddRecordsEnabled" name="HbA1cConductedBy" class="form-control" data-ng-model="measurement.HbA1cConductedBy" ng-required="HbA1cIsAddRecordsEnabled" shown-validation />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

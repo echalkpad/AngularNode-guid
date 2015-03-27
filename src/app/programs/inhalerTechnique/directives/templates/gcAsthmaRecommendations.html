@@ -1,0 +1,56 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Pharmacist Recommendations <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color:#d9534f;"
+                                          ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="smart-form" style="margin-bottom: 15px;">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="checkbox" data-ng-model="qualifiesIntervention" data-ng-true-value="true" data-ng-false-value="false">
+                                    <i></i>This education session qualifies as a Clinical Intervention C5 - Difficulty using dosage form with a recommendation of an Education or counselling session (R13). Untick if this does not apply.
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="pharmacistRecommendations">Select recommendations:</label>
+
+                            <div class="form-group">
+                                <ui-select id="pharmacistRecommendations" multiple ng-model="selectedRecommendations.selected" theme="select2" ng-disabled="disabled" style="width: 100%">
+                                    <ui-select-match placeholder="Select recommendations...">{{$item.DisplayName}}</ui-select-match>
+                                    <ui-select-choices repeat="recommendation in recommendationsList | filter:$select.search">
+                                        {{recommendation.DisplayName}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mar-top">
+                        <div class="col-md-12">
+                            <label for="Pharmacist Notes:"></label>
+                            <input placeholder="Pharmacist Notes" id="commentsActions" type="text" class="form-control input-md" ng-model="commentsActions" />
+                        </div>
+                    </div>
+               
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

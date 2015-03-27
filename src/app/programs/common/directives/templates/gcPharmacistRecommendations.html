@@ -1,0 +1,52 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Pharmacist Recommendations <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color:#d9534f;"
+                                          ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="pharmacistRecommendations">Select recommendations:</label>
+
+                            <div class="form-group">
+                                <ui-select multiple ng-model="selectedRecommendations.selected" theme="select2" ng-disabled="disabled" style="width: 100%">
+                                    <ui-select-match placeholder="Select recommendations...">{{$item.DisplayName}}</ui-select-match>
+                                    <ui-select-choices group-by="recommendationGroup" repeat="recommendation in recommendationsList | filter:$select.search">
+                                        {{recommendation.DisplayName}}
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+
+                            <input placeholder="Other" data-ng-hide="{{showOther === 'false'}}" type="text" class="form-control input-md" ng-model="recommendationOtherDetail" />
+                        </div>
+                    </div>
+                    <div class="row mar-top">
+                        <div class="col-md-12">
+                            <label for="recommendationNote">Comments / Actions:</label>
+                            <input placeholder="Additional Session Notes/Comments" id="recommendationNote" type="text" class="form-control input-md" ng-model="pharmacist.Comments" />
+                        </div>
+                    </div>
+                    <div class="row mar-top">
+                        <div class="col-md-12">
+                            <label for="pharmacistName">Pharmacist name:</label>
+                            <input placeholder="Pharmacist name" id="pharmacistName" type="text" class="form-control input-md" ng-model="pharmacist.FirstName" />
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

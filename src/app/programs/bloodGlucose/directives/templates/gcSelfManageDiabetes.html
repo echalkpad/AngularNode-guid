@@ -1,0 +1,166 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="" data-widget-collapsed="true">
+
+    <header>
+        <h2>
+            Self Management of Diabetes <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color: #d9534f;"
+                                           ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <section class="smart-form">
+                                    <label class="label bold">Do you self-monitor your Blood Glucose Levels (BGL) at home?</label>
+                                    <div class="inline-group">
+                                        <label class="radio">
+                                            <input type="radio" name="radio-selfMonitorBGL" data-ng-model="bglAttributes['@SelfMonitorBGL']" value="true" />
+                                            <i></i>Yes
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="radio-selfMonitorBGL" data-ng-model="bglAttributes['@SelfMonitorBGL']" value="false" />
+                                            <i></i>No
+                                        </label>
+                                    </div>
+                                </section>
+
+                                <section>
+
+                                    <div class="form-group" data-ng-show="bglAttributes['@SelfMonitorBGL'] === 'true'">
+                                        <label class="">Which device do you use?</label>
+                                        <input placeholder="Device Type" class="form-control input-md" data-ng-model="bglAttributes['@SelfMonitorDeviceType']" />
+                                    </div>
+
+                                    <div class="form-group" data-ng-show="bglAttributes['@SelfMonitorBGL'] === 'true'">
+                                        <label>On average, how often do you test?</label>
+
+                                        <div class="clearfix"></div>
+                                        <ui-select data-ng-model="bglAttributes['@SelfMonitorTestFrequency']" theme="select2" style="width: 100%;">
+                                            <ui-select-match placeholder="Select test frequency...">{{$select.selected}}</ui-select-match>
+                                            <ui-select-choices repeat="testFrequency in testFrequencyList | filter:$select.search">
+                                                {{testFrequency}}
+                                            </ui-select-choices>
+                                        </ui-select>
+                                    </div>
+
+                                    <div class="form-group" data-ng-show="bglAttributes['@SelfMonitorBGL'] === 'false'">
+                                        <label class="bold">What do you feel is the main reason you do not test your Blood Glucose Levels at home?</label>
+                                        <textarea placeholder="Self Monitor Reason" class="form-control input-md" data-ng-model="bglAttributes['@SelfMonitorReason']"></textarea>
+                                    </div>
+                                </section>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <section class="smart-form">
+                                    <label class="label bold">Do you experience any of the following problems when doing your Blood Glucose tests?</label>
+
+                                    <div class="row">
+                                        <div class="col col-4">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@ProblemRemembering']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Remembering to monitor
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@ProblemDeviceDifficulties']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Difficulties/uncertainty with use of device
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@ProblemKnowingHowOften']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Knowing how often to test
+                                            </label>
+                                        </div>
+                                        <div class="col col-4">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@ProblemExcessivePain']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Excessive pain when monitoring
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@ProblemShortSupply']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Short supply of test strips/lancets
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@ProblemOther']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Other
+                                            </label>
+                                            <label class="input" data-ng-class="{'has-error': {{name}}.problemOtherDetail.$invalid}"  data-ng-show="bglAttributes['@ProblemOther'] == 'true'">
+                                                <input type="text" name="problemOtherDetail" required shown-validation data-ng-disabled="bglAttributes['@ProblemOther'] !== 'true'" data-ng-model="bglAttributes['@ProblemOtherDetail']">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="smart-form">
+                                    <label class="label bold">Which Health Care Professionals do you have access to and see regularly?</label>
+
+                                    <div class="row">
+                                        <div class="col col-4">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToGP']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>GP/Specialist
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToDiabetesEducator']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Diabetes Educator
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToDietitian']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Dietitian
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToDentist']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Dentist
+                                                <a class="fa fa-question-circle programm-help" href="http://www.diabetesaustralia.com.au/Documents/NDSS/Resources/Diabetes_Information_Sheets/ORAL-HEALTH-2009.pdf" target="_blank"></a>
+                                            </label>
+                                        </div>
+                                        <div class="col col-4">
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToPodiatrist']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Podiatrist
+                                                <a class="fa fa-question-circle programm-help" href="http://www.diabetesaustralia.com.au/Documents/NDSS/Resources/Diabetes_Information_Sheets/DIABETES---YOUR-FEET-2009.pdf" target="_blank"></a>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToOptometrist']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Optometrist/Opthalmologist
+                                                <a class="fa fa-question-circle programm-help" href="http://www.diabetesaustralia.com.au/Documents/NDSS/Resources/Diabetes_Information_Sheets/DIABETES---YOUR-EYES-2010.pdf" target="_blank"></a>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToPersonalTrainer']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Personal Trainer/Exercise Physiologist
+                                                <a class="fa fa-question-circle programm-help" href="http://www.diabetesaustralia.com.au/Documents/NDSS/Resources/Diabetes_Information_Sheets/PHYSICAL-ACTIVITY-2009.pdf" target="_blank"></a>
+                                            </label>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" data-ng-model="bglAttributes['@AccessToOther']" data-ng-true-value="true" data-ng-false-value="false">
+                                                <i></i>Other
+                                            </label>
+
+                                            <label class="input" data-ng-class="{'has-error': {{name}}.accessToOtherDetail.$invalid}" data-ng-show="bglAttributes['@AccessToOther'] == 'true'">
+                                                <input type="text" name="accessToOtherDetail" required shown-validation data-ng-disabled="bglAttributes['@AccessToOther'] !== 'true'" data-ng-model="bglAttributes['@AccessToOtherDetail']">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </section>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

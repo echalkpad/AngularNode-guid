@@ -1,0 +1,187 @@
+{
+  "?xml": {
+    "@version": "1.0"
+  },
+  "PSGlucoseRecordingModel": {
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema-instance",
+    "@ClaimReference": "",
+    "PSProgramModel": {
+      "Description": null,
+      "PreparationDate": "2014-12-09T17:13:01.644",
+      "PSPharmacy": {
+        "eGuildId": "30143",
+        "PharmacistInitials": "AK",
+        "Details": {
+          "VendorID": "FD",
+          "ApprovalNumber": "13980T",
+          "PharmacyName": "PRICELINE PHARMACY LANE COVE",
+          "PharmacyAddress1": "SHOP MM1 MARKET SQUARE",
+          "PharmacyAddress2": null,
+          "PharmacySuburb": "LANE COVE",
+          "PharmacyPostcode": "2066",
+          "PharmacyState": "NSW",
+          "PharmacyPhoneNumber": "02 9418 6426"
+        }
+      },
+      "Patient": {
+        "PatientID": "39718",
+        "FirstName": "CLINICAL",
+        "LastName": "INTERVENTION",
+        "MedicareFirstName": null,
+        "MedicareLastName": null,
+        "PatientAddressLine1": "PRICELINE PHARMACY",
+        "PatientAddressLine2": null,
+        "PatientSuburb": "LANE COVE",
+        "PatientPostcode": "2066",
+        "PatientState": "NSW",
+        "MedicareNumber": null,
+        "EntitlementNumber": null,
+        "DVANumber": null,
+        "SafetyNetNumber": null,
+        "PhoneNumber": null,
+        "AlternateContactNumber": null,
+        "EmailAddress": null,
+        "DateOfBirth": "23092014",
+        "Gender": "M",
+        "Scripts": {
+          "Script": {
+            "ScriptID": "747265",
+            "OriginalScriptNumber": "747265",
+            "DatePrescribed": "23092014",
+            "DateDispensed": "23092014",
+            "MedicationID": "BLNK1",
+            "PBSCode": null,
+            "Manufacturer": null,
+            "AMTNumber": null,
+            "DrugName": "Use FullDrugName",
+            "DrugForm": null,
+            "DrugStrength": null,
+            "QuantityPrescribed": "1",
+            "QuantityUnitOfMeasure": null,
+            "RepeatNumber": "0",
+            "RepeatsPrescribed": "0",
+            "Directions": null,
+            "GenericName": null,
+            "FullDrugName": "BLANK",
+            "AuthorityNumber": null,
+            "IsReversal": "false",
+            "NumDaysOfSupply": "30",
+            "PrescriberID": "0",
+            "PrescriberGivenName": null,
+            "PrescriberLastName": null,
+            "PrescriberAddress1": null,
+            "PrescriberAddress2": null,
+            "PrescriberSuburb": null,
+            "PrescriberState": null,
+            "PrescriberPostcode": null,
+            "PrescriberPhoneNumber": null,
+            "Price": "0",
+            "LastRepeatScriptDate": null,
+            "FormCategory": "1",
+            "ImmediateSupplyNecessary": "false",
+            "Regulation24": "false",
+            "PaymentCategory": "6"
+          }
+        },
+        "MemoCare": {
+          "@MemoCareActive": "false",
+          "@MemoCareRecipient": "",
+          "@MemoCareChannel": ""
+        }
+      },
+      "Recommendations": {
+        "Recommendation": [
+          {
+            "@Name": "DoctorReferral",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "ReportToDoctor",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "WeeklyMedicinesPack",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "HomeMedicinesReview",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "MedicinesAdherence",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "WeightRecord",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "BloodPressureMonitoring",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "PharmacyFollowup",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "MedsCheck",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "SmokingCessation",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "InhalerTechniqueCheck",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "LipidRecordingService",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "Other",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "LifestyleBehaviouralChanges",
+            "@Selected": "false"
+          }
+        ]
+      },
+      "Pharmacist": {
+        "FirstName": null,
+        "LastName": null,
+        "Comments": null
+      }
+    },
+    "BGLMeasurements": null,
+    "HbA1cMeasurements": null,
+    "BGLMedications": {
+      "BGLMedication": {
+        "@Directions": "",
+        "@PrecriberLastName": "",
+        "@PrescriberGivenName": " [0]",
+        "@OrignalScriptNumber": "747265",
+        "@FullDrugName": "BLANK",
+        "@Selected": "true",
+        "@PrescriberID": "0"
+      }
+    },
+    "BGLAttributes": {
+      "@NDSSNumber": "",
+      "@DiabetesType": "",
+      "@DiabetesOtherDetail": "",
+      "@InsulinUser": "Yes",
+      "@DiabetesActionPlan": "No",
+      "@SelfMonitorDeviceType": "",
+      "@SelfMonitorTestFrequency": "",
+      "@SelfMonitorTestFrequencyDetail": "",
+      "@SelfMonitorReason": ""
+    },
+    "PatientHistory": {
+      "Conditions": null,
+      "OtherConditions": null
+    }
+  }
+}

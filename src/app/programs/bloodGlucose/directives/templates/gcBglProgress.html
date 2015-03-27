@@ -1,0 +1,125 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Your progress <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color: #d9534f;"
+                             ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                            <div kendo-chart
+                                 k-title="{ text: 'Blood Glucose Level (BGL)', font: '24px arial,helvetica,sans-serif'}"
+                                 k-series="[{ field: 'Result'} ]"
+                                 k-options="chartOptions"
+                                 k-data-source="BGLAverageMeasurementsDataSource"
+                                 style="height: 250px;"></div>
+
+                            <div class="clearfix"></div>
+                            <section>
+                                <table class="table table-bordered table-hover smart-form has-tickbox checkbox-fix">
+                                    <thead>
+                                        <tr>
+                                            <th>Plot</th>
+                                            <th>Record Date</th>
+                                            <th>BGL</th>
+                                            <th>Type</th>
+                                            <th>Target low</th>
+                                            <th>Target high</th>
+                                            <th>Conducted by</th>
+                                            <th>Notes</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="measurement in BGLAverageMeasurements">
+                                            <td>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" data-ng-model="measurement.Plot" data-ng-change="bglPlotChange()" name="checkbox-inline">
+                                                    <i></i>
+                                                </label>
+                                            </td>
+
+                                            <td data-ng-bind="measurement.RecordDate"></td>
+                                            <td data-ng-bind="measurement.Result"></td>
+                                            <td data-ng-bind="measurement.Type"></td>
+                                            <td data-ng-bind="measurement.TargetHigh"></td>
+                                            <td data-ng-bind="measurement.TargetLow"></td>
+                                            <td data-ng-bind="measurement.ConductedBy"></td>
+                                            <td data-ng-bind="measurement.Notes"></td>
+                                            <td class="text-center">
+                                                <i class="glyphicon glyphicon-trash action-icon" data-ng-click="removeBgl($event);"></i>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+
+                        <div class="col-md-6" style="">
+                            
+                            <div kendo-chart
+                                 k-title="{ text: 'Glycosylated Haemoglobin (HbA1c)', font: '24px arial,helvetica,sans-serif'}"
+                                 k-series="[{ field: 'ResultMeasure'} ]"
+                                 k-options="chartOptions"
+                                 k-data-source="HbA1cAverageMeasurementsDataSource"
+                                 style="height: 250px;"></div>
+
+                            <div class="clearfix"></div>
+                            <section>
+                                <table class="table table-bordered table-hover smart-form has-tickbox checkbox-fix">
+                                    <thead>
+                                    <tr>
+                                        <th>Plot</th>
+                                        <th>Record Date</th>
+                                        <th>HBA1c (mmol/mol)</th>
+                                        <th>HBA1c (%)</th>
+                                        <th>Conducted by</th>
+                                        <th>Notes</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr data-ng-repeat="measurement in HbA1cAverageMeasurements">
+                                        <td>
+                                            <label class="checkbox">
+                                                <input type="checkbox" data-ng-model="measurement.Plot" data-ng-change="hba1cPlotChange()" name="checkbox-inline">
+                                                <i></i>
+                                            </label>
+                                        </td>
+                                        <td data-ng-bind="measurement.RecordDate"></td>
+                                        <td data-ng-bind="measurement.ResultMeasure"></td>
+                                        <td data-ng-bind="measurement.ResultPercent"></td>
+                                        <td data-ng-bind="measurement.ConductedBy"></td>
+                                        <td data-ng-bind="measurement.Notes"></td>
+                                        <td class="text-center">
+                                            <i class="glyphicon glyphicon-trash action-icon" data-ng-click="removeHbA1c($event);"></i>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿<div class="well well-sm">
+    <!-- Timeline Content -->
+    <div class="smart-timeline">
+        <ul class="smart-timeline-list">
+
+            <li data-ng-repeat="event in vm.events" >
+                <div ng-switch on="event.EventType">
+
+                    <div ng-switch-when="ProgramDocument">
+                        <div class="smart-timeline-icon">
+                            <i class="fa {{ event.Detail | programDetailIcon}}"></i>
+                        </div>
+                        <div class="smart-timeline-time">
+                            <small am-time-ago="event.EventDateTime"></small>
+                        </div>
+                        <div class="smart-timeline-content">
+                            <p><strong>{{event.Detail}}</strong></p>
+                            <p>{{event.ProgramName}}<br />
+                                <gc-program-button services="services" as-link="true" qualification="event.qualification"></gc-program-button>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+               
+            </li>
+            <li class="text-center"  data-ng-hide="firstLoadCount > vm.eventsTotal || vm.events.length === vm.eventsTotal">
+                <a href-void="" class="btn btn-sm btn-default" data-ng-click="loadMore()" href="#"><i class="fa fa-arrow-down text-muted"></i> LOAD MORE</a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- END Timeline Content -->
+</div>

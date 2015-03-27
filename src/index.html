@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" class="no-js">
+	<head>
+
+	    <base href="/"/>
+
+	    <meta charset="utf-8">
+		<title>GuildCare app</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- #CSS Links -->
+
+	    <link rel="stylesheet" type="text/css" media="screen" href="bower_components/angular-ui-select/dist/select.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="bower_components/ng-tags-input/ng-tags-input.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="bower_components/ng-tags-input/ng-tags-input.bootstrap.min.css">
+
+        <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" />
+	    <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.blueopal.min.css"/>
+
+	    <!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/bootstrap.min.css">
+	    <!--<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/font-awesome.min.css">-->
+        <link rel="stylesheet" type="text/css" media="screen" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+
+		<!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+		<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/smartadmin-production-plugins.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/smartadmin-production.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/smartadmin-skins.min.css">
+
+		<!-- SmartAdmin AngularJS Fixes -->
+		<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/fixes.css">
+
+		<!-- SmartAdmin RTL Support -->
+		<link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/smartadmin-rtl.min.css">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="content/css/main.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="content/css/programs.css">
+
+        <link rel="stylesheet" type="text/css" media="screen" href="vendor/smartadmin/styles/css/demo.min.css">
+
+		<!-- #FAVICONS -->
+		<link rel="shortcut icon" href="content/img/favicon.ico" type="image/x-icon">
+
+		<!-- #GOOGLE FONT -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+		<!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <!-- Telerik Reports -->
+        <link rel="stylesheet" type="text/css" href="vendor/telerik/styles/telerikReportViewer-8.2.14.1204.css">
+
+        <!--Start of Zopim Live Chat Script-->
+        <script type="text/javascript">
+            window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+                    d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+                    _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+                $.src='//v2.zopim.com/?2n8Sob2Vv5aSzS0713u53L94uj7rFDGx';z.t=+new Date;$.
+                        type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+
+            $zopim(function() {
+                $zopim.livechat.button.setOffsetVertical(51);
+                //$zopim.livechat.bubble.hide();
+                //$zopim.livechat.window.hide();
+                //$zopim.livechat.button.hide();
+            });
+        </script>
+        <!--End of Zopim Live Chat Script-->
+
+	</head>
+
+	<body data-smart-device-detect
+		data-smart-fast-click
+		data-smart-layout
+		data-smart-page-title="GuildCare app">
+
+		<!-- ui-view container -->
+
+		<div data-ui-view="root"  data-autoscroll="false"></div>
+
+		<!--[if lt IE 7]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+			<script src="bower_components/es5-shim/es5-shim.js"></script>
+			<script src="bower_components/json3/lib/json3.min.js"></script>
+		<![endif]-->
+		<script src="app/rconfig.js"></script>
+		<script src="bower_components/requirejs/require.js" data-main="app/main.js"></script>
+
+	</body>
+	
+</html>

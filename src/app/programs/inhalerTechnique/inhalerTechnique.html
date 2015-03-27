@@ -1,0 +1,140 @@
+﻿<!-- MAIN CONTENT -->
+<form name="programForm" id="programForm">
+    <div id="content" style="">
+        <gc-program-header title="Inhaler Technique"
+                           preparation-date="vm.document.PSProgramModel.PreparationDate"
+                           program-document-id="vm.ProgramDocumentId"
+                           display-ndss="false"
+                           display-pharmacist-initials="true"
+                           name="programHeader"
+                           patient-id="vm.patientId"
+                           custom-actions-template="app/programs/inhalerTechnique/directives/templates/gcCustomActions.html"
+                           patient="vm.document.PSProgramModel.Patient"></gc-program-header>
+        
+        <section id="widget-grid" widget-grid>
+            <div class="row">
+                
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+                        <header>
+                            <h2>Correct inhaler technique could save your life</h2>
+                        </header>
+                        <div>
+                            <div class="widget-body">
+                                <strong>Did you know that many people don't use their inhaler (puffer) correctly?</strong><br/>
+                                <p>
+                                    Incorrect use can lead to poor breathing control, sometimes ending in an emergency trip to the hospital. By using your inhaler correctly and as prescribed by your doctor, you can help avoid this. The benefits of using your inhaler(s) correctly include better control of your breathing symptoms, a better quality of life and may lead to taking less medicine overall.
+                                </p>
+                                <strong>Your pharmacist is a qualified and trained resource to help you get your breathing controlled. </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <gc-asthma-medications name="asthmaMedications" medications="vm.document.AsthmaMedications.AsthmaMedication"></gc-asthma-medications>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <gc-inhaler-type name="inhalerType" inhaler-visibility="vm.inhalerVisibility" asthma-attributes="vm.document.AsthmaAttributes"></gc-inhaler-type>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <gc-technique-check name="techniqueCheck" inhaler-visibility="vm.inhalerVisibility" document="vm.document"></gc-technique-check>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+                        <header>
+                            <h2>Commmon Problems</h2>
+                        </header>
+                        <div>
+                            <div class="widget-body">
+                                <ul data-ng-show="vm.inhalerVisibility.WithSpacerVisible">
+                                    <li>Not breathing in quickly enough after pressing the canister, so the medication falls to the bottom of the spacer</li>
+                                    <li>Not breathing in deeply enough</li>
+                                    <li> Not holding breath for long enough</li>
+                                    <li> Taking several puffs without waiting or shaking the inhaler in between</li>
+                                </ul>
+                                <ul data-ng-show="vm.inhalerVisibility.WithoutSpacerVisible">
+                                    <li> Holding the inhaler in the wrong position</li>
+                                    <li> Not breathing in at the same time as pressing the canister</li>
+                                    <li> Not breathing in deeply enough</li>
+                                    <li> Not holding breath for long enough</li>
+                                    <li> Taking several puffs without waiting or shaking the inhaler in between</li>
+                                </ul>
+                                <ul data-ng-show="vm.inhalerVisibility.HandihalerVisible">
+                                    <li> Piercing the capsule several times or not piercing the capsule at all</li>
+                                    <li> Not breathing in strongly enough to draw the medication out of the inhaler</li>
+                                    <li> Not taking a second breath to receive the full dose from the capsule</li>
+                                    <li> Swallowing the capsule instead of inhaling it through the HandiHaler</li>
+                                    <li> Not using a new capsule for each dose</li>
+                                </ul>
+                                <ul data-ng-show="vm.inhalerVisibility.AccuhalerVisible">
+                                    <li> Not loading a dose before inhaling</li>
+                                    <li> Not holding the inhaler horizontally while loading and taking the dose</li>
+                                    <li> Not breathing in strongly enough to draw the medication out of the inhaler</li>
+                                    <li> Not holding breath for long enough</li>
+                                    <li> Moisture getting inside from breathing into the inhaler or leaving the cover open</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+
+                        <header>
+                            <h2>Tips</h2>
+                        </header>
+
+                        <div>
+                            <div class="widget-body">
+                                <ul data-ng-show="vm.inhalerVisibility.WithSpacerVisible">
+                                    <li>Looking after your spacer properly helps the medication get to your lungs better, as it doesn't stick to the sides or get clogged in the valve.</li>
+                                    <li>Using a spacer can help reduce the chance of side-effects like hoarse throat and thrush.</li>
+                                    <li>Ask your pharmacist about a facemask if your child can't seal their lips around the spacer mouthpiece properly.</li>
+                                </ul>
+                                <ul data-ng-show="vm.inhalerVisibility.WithoutSpacerVisible">
+                                    <li>Keep chin up and inhaler upright (not aimed at roof of mouth or tongue).</li>
+                                    <li>People using a standard inhaler for a corticosteroid preventer medication should also use a spacer.</li>
+                                    <li>People with weak hands or osteoarthritis who have difficulty using a standard inhaler should ask their pharmacist about a Haleraid device.</li>
+                                </ul>
+                                <ul data-ng-show="vm.inhalerVisibility.HandihalerVisible">
+                                    <li>If you sometimes have trouble getting your inhaler open when it's new, ask your pharmacist to work the cover back and forth a few times to loosen the hinge when you collect it.</li>
+                                    <li>Always close the inhaler after use.</li>
+                                </ul>
+                                <ul data-ng-show="vm.inhalerVisibility.AccuhalerVisible">
+                                    <li>Never hold the inhaler with the mouthpiece pointing down during or after loading a dose, as this can dislodge the medication. Keep it horizontal.</li>
+                                    <li>You can test whether you are breathing in strongly enough by placing a dark handkerchief or fine cloth over the mouthpiece before using the inhaler. A very fine layer of powder should be visible on the cloth if you have breathed in strongly enough to draw medication out of the inhaler.</li>
+                                    <li>Always close the inhaler after use.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    
+                    <gc-asthma-recommendations name="asthmaRecommendations"
+                                               comments-actions="vm.document.CommentsActions"
+                                               asthma-attributes="vm.document.AsthmaAttributes"
+                                               qualifies-intervention="vm.document['@QualifiesAsIntervention']"></gc-asthma-recommendations>
+                </div>
+            </div>
+
+
+        </section>
+
+    </div>
+</form>
+<!-- END MAIN CONTENT -->

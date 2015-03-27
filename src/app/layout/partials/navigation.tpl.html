@@ -1,0 +1,54 @@
+<aside id="left-panel">
+
+    <!-- User info -->
+    <div class="login-info ng-cloak">
+    <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
+        <a  href="" toggle-shortcut>
+            <span><i ng-if="user.username" class="fa fa-user fa-2x bcolor"></i>
+            <i ng-if="!user.username" class="fa fa-desktop  fa-2x bcolor"></i></span>
+                <span class="wcolor">{{user.username}}</span>
+        </a>
+     </span>
+    </div>
+    <!-- end user info -->
+
+    <nav>
+
+        <ul data-smart-menu>
+            <li data-ui-sref-active="active">
+                <a data-ui-sref="app.dashboard" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span
+                        class="menu-item-parent">Dashboard</span></a>
+            </li>
+            <li data-ui-sref-active="active">
+    <a data-ui-sref="app.patients" title="Patients"><i class="fa fa-lg fa-fw fa-users"></i><span
+                        class="menu-item-parent">Patients</span></a>
+            </li>
+            <li data-ui-sref-active="active">
+                <a data-ui-sref="app.inbox.folder" title="Inbox">
+                    <i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Messages</span><span
+                        unread-messages-count class="badge pull-right inbox-badge"></span></a>
+            </li>
+            <li data-ui-sref-active="active">
+                <a data-ui-sref="app.calendar" title="Calendar"><i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> <span
+                        class="menu-item-parent">Calendar</span></a>
+            </li>
+            <li data-ui-sref-active="active">
+                <a data-ui-sref="app.services" title="Services"><i class="fa fa-lg fa-fw fa-clipboard"></i> <span
+                        class="menu-item-parent">Services</span></a>
+            </li>
+            <li data-ui-sref-active="active">
+                <a data-ui-sref="app.reports" title="Reports"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span
+                        class="menu-item-parent">Reports</span></a>
+            </li>
+            <li data-ui-sref-active="active">
+                <a data-ui-sref="app.calendar" title="Settings"><i class="fa fa-lg fa-fw  fa-sliders"></i> <span
+                        class="menu-item-parent">Settings</span></a>
+            </li>
+        </ul>
+    </nav>
+
+  <span class="minifyme" data-action="minifyMenu" minify-menu>
+    <i class="fa fa-arrow-circle-left hit"></i>
+  </span>
+
+</aside>

@@ -1,0 +1,27 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            <i class="fa fa-bar-chart"></i> Opportunities
+        </h2>
+    </header>
+
+    <div class="dashboard-widget">
+
+        <div class="widget-body">
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div kendo-chart
+                         k-series="[{ field: 'Value'},{ field: 'Value2'}]"
+                         k-options="chartOptions"
+                         k-data-source="measurementsDataSource"
+                         style="height: 250px;"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

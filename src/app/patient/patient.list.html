@@ -1,0 +1,162 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+
+    <div class="row patient" >
+        <big-breadcrumbs items="['Patient List']" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
+    </div>
+    <!-- widget grid -->
+    <section id="widget-grid" style="margin-top: 0px;" widget-grid>
+
+        <!-- row -->
+        <div class="row">
+            <article class="col-sm-12">
+                <div class="pull-right pad-tb-15">
+
+                    <button class="btn btn-labeled btn-primary" data-ng-click="refresh()"> <span class="btn-label"><i class="glyphicon glyphicon-refresh"></i></span>Refresh </button>
+                    <button class="btn btn-labeled btn-default" data-ng-click="reset()"> <span class="btn-label"><i class="glyphicon glyphicon-repeat"></i></span>Reset </button>
+                    <gc-add-patient navigate-on-add="true"></gc-add-patient>
+
+                </div>
+                <div class="clearfix"></div>
+
+                    <div class="well well-small bgcolor">
+
+                        <div class="widget-body">
+                            <!-- content goes here -->
+
+                            <div class="row">
+                                <div class="col-md-3">                                   
+                                    <div class="input-group">
+                                        <input type="text" data-ng-model="vm.lastName" class="form-control borderr" placeholder="Last name">                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-3">                                    
+                                    <div class="input-group">
+                                        <input type="text" data-ng-model="vm.firstName" class="form-control borderr" placeholder="First name">                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">                                   
+                                    <select class="form-control borderr" data-ng-model="vm.selectedService" data-ng-options="service.ProgramName for service in vm.services" >
+                                        <option value="">Service</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">                                    
+                                    <select class="form-control borderr" data-ng-model="vm.selectedStatus" data-ng-options="status for status in vm.statusList" >
+                                        <option value="">Status</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-2">                                   
+                                    <select data-ng-model="vm.selectedSorting" class="form-control borderr" data-ng-options="sorting.text for sorting in vm.sortingList" >
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row pad-tb-15">
+                                <div class="col-md-12">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center bordertr">
+                                                    <i title="Expand all" class="glyphicon" style="cursor: pointer;" ng-click="expandAll(!isExpandAll); " data-ng-class="{'glyphicon-chevron-down': isExpandAll, 'glyphicon-chevron-up': !isExpandAll}"></i>
+                                                </th>
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Address and Contact Details</th>
+                                                <th>Medicare Number</th>
+                                                <th>Phone Number</th>
+                                                <th class="bordertl">Last Dispense</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat-start="patient in vm.patients" data-ng-init="patient.showMore=false; getPatient(patient)">
+                                                <td class="text-center col-md-1">
+                                                    <i class="glyphicon" style="cursor: pointer;" ng-click="viewPatient(patient, !patient.showMore); $event.stopPropagation()" data-ng-class="{'glyphicon-chevron-down': patient.showMore, 'glyphicon-chevron-up': !patient.showMore}"></i>
+                                                </td>
+                                                <td class="col-md-2">
+                                                    <a ui-sref="app.patient({ id: patient.PatientId, lastName: patient.LastName})">
+                                                        {{patient.LastName}}
+                                                    </a>
+                                                </td>
+                                                <td class="col-md-2">{{patient.FirstName}}</td>
+                                                <td class="col-md-4">
+                                                    <span data-ng-bind="(patient.Address1 ? (patient.Address1) : '') + (patient.Address2 ? (' ' + patient.Address2) : '') + (patient.Suburb ? (', ' + patient.Suburb) : '') + (patient.State ? (', ' + patient.State) : '') + (patient.Postcode ? (', ' + patient.Postcode) : '')"></span>
+                                                </td>
+                                                <td data-ng-if="patient.ProgramId != 0" class="col-md-1">{{patient.MedicareNumber}}</td>
+                                                <td data-ng-if="patient.ProgramId != 0" class="col-md-1">{{patient.PhoneNumber}}</td>
+                                                <td data-ng-if="patient.ProgramId != 0" class="col-md-1">{{patient.LastDispenseDate | date:'dd/MM/yyyy'}}</td>
+
+                                                <td data-ng-if="patient.ProgramId == 0" colspan="3" class="">
+                                                    Adhoc
+                                                </td>
+                                            </tr>
+                                            <tr class="show-more" ng-class="{'hidden': (patient.showMore == false)}"  data-ng-repeat-end>
+                                                <td colspan="7" style="padding-left: 33px;padding-right: 15px;padding-top: 15px;">
+                                                   <table class="table" style="" >
+                                                        <thead>
+                                                            <tr class="success">
+                                                                <th class="col-xs-4 subborder">Service</th>
+                                                                <th class="col-xs-4 subborder" >Detail</th>
+                                                                <th class="col-xs-2 subborder" >Date</th>
+                                                                <th class="col-xs-2 subborder" >Case#</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody >
+                                                            <tr data-ng-repeat="document in patient.documents">
+                                                                <td class="tdborder">{{getProgramName(document.ProgramId)}}</td>
+                                                                <td class="tdborder">
+                                                                    <span class="label {{document.QualificationStatus | qualiciationStatus}}">{{document.QualificationStatus}}</span><br/>
+                                                                    {{document.QualificationValue}}
+                                                                </td>
+                                                                <td class="tdborder">{{document.CreatedDate  | date:'dd/MM/yyyy'}}</td>
+                                                                <td class="tdborder">
+                                                                    <gc-program-button services="vm.services" qualification="document"></gc-program-button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <pagination class="pull-right" total-items="vm.total" ng-model="vm.currentPage" items-per-page="vm.pageSize" ng-change="getPatients()"></pagination>
+                                    <div data-ng-show="vm.loading" class="loading-conainer">
+                                        <i class="fa fa-gear fa-4x fa-spin"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- end content -->
+                        </div>
+
+                    </div>
+                 
+            </article>
+        </div>
+
+        <!-- end row -->
+
+        <!-- row -->
+
+        <div class="row">
+
+            <article class="col-sm-12 col-md-12 col-lg-6">
+
+            </article>
+
+            <article class="col-sm-12 col-md-12 col-lg-6">
+
+
+            </article>
+
+        </div>
+
+        <!-- end row -->
+
+    </section>
+    <!-- end widget grid -->
+
+</div>
+<!-- END MAIN CONTENT -->

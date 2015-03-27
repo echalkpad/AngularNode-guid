@@ -1,0 +1,58 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Send Message</h3>
+</div>
+<div class="modal-body">
+    <form name="sendMessageForm" novalidate>
+        <fieldset>
+            <tabset class="message-tabs">
+                <tab active="active.SMS" heading="SMS">
+                    <div class="row" data-ng-if="active.SMS">
+                        <div class="col-md-12">
+                            <div class="form-group" ng-class="{ 'has-error': sendMessageForm.mobile.$invalid && submitted }">
+                                <input type="text" class="form-control input-md" placeholder="Mobile #" name="mobile" ng-model="vm.message.mobile" required />
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+                <tab active="active.EMAIL" heading="Email">
+                    <div class="row" data-ng-if="active.EMAIL">
+                        <div class="col-md-12">
+                            <div class="form-group" ng-class="{ 'has-error': sendMessageForm.email.$invalid && submitted }">
+                                <input type="email" class="form-control input-md" placeholder="Email" name="messageTo" ng-model="vm.message.email" required />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group" ng-class="{ 'has-error': sendMessageForm.subject.$invalid && submitted}">
+                                <input type="text" placeholder="Subject" name="subject" class="form-control input-md" ng-model="vm.message.subject" required />
+                            </div>
+                        </div>
+                    </div>
+
+                </tab>
+            </tabset>
+            
+            <div class="row">
+               
+               
+                <div class="col-md-12">
+                    <div class="form-group" ng-class="{ 'has-error': sendMessageForm.messageText.$invalid && submitted}">
+                        <textarea rows="5" placeholder="Message" name="messageText" class="form-control input-md" ng-model="vm.message.messageText"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <select class="form-control borderr" placeholder="Template" data-ng-model="vm.selectedTemplate" data-ng-options="template.TemplateName for template in vm.templates"></select>
+                </div>
+                <div class="col-md-5">
+                    <button class="btn btn-labeled btn-default" data-ng-disabled="!vm.selectedTemplate" data-ng-click="insertTemplate()"> <span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Insert </button>
+                    <button class="btn btn-labeled btn-default" data-ng-click="reset()"> <span class="btn-label"><i class="glyphicon glyphicon-repeat"></i></span>Reset </button>
+                </div>
+            </div>
+           
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-labeled btn-success" ng-click="sendMessage()"><span class="btn-label"><i class="fa fa-paper-plane"></i></span>OK </button>
+    <button class="btn btn-labeled btn-default" ng-click="cancel()"><span class="btn-label"><i class="glyphicon glyphicon-repeat"></i></span>Cancel </button>
+</div>

@@ -1,0 +1,131 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Blood Glucose Level (BGL) Measurements <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color: #d9534f;" ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <form name="BglMeasurements" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label data-tooltip-popup-delay="1000" data-tooltip-placement="top" data-tooltip-html-unsafe="Click to add a new measurement. <br> 1. Enter new measurments / notes. <br> 2. Click Save.">
+                                    <button class="btn btn-labeled btn-success" data-ng-disabled="BGLIsNewRecordsEnabled" data-ng-click="add()"><span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Add</button>
+                                </label>
+                                <label data-tooltip-popup-delay="1000" data-tooltip-placement="top" data-tooltip="Click to save new measurement.">
+                                    <button class="btn btn-labeled btn-primary" type="submit" data-ng-disabled="!BGLIsNewRecordsEnabled" data-ng-click="save()"><span class="btn-label"><i class="glyphicon glyphicon-floppy-save"></i></span>Save</button>
+                                </label>
+                            </div>
+
+
+                            <div class="form-group" data-ng-class="{'has-error': {{name}}.mydate.$invalid && BGLIsNewRecordsEnabled}">
+                                <label>Date and time of test:</label>
+                                <div class="input-group">
+                                    <input type="text" data-ng-disabled="!BGLIsNewRecordsEnabled" name="mydate" placeholder="Select a date" data-ng-model="measurement.BGLRecordDate" class="form-control" date-format="dd/mm/yy" gc-datepicker ng-required="BGLIsNewRecordsEnabled" shown-validation>
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group " data-ng-class="{'has-error': {{name}}.bglTestType.$invalid && BGLIsNewRecordsEnabled}">
+                                <label>Type of test</label>
+                                <select data-ng-disabled="!BGLIsNewRecordsEnabled" class="form-control input-md" placeholder="DiabetesType" name="bglTestType" data-ng-model="measurement.BGLTestType" ng-required="BGLIsNewRecordsEnabled" shown-validation>
+                                    <option>Fasting</option>
+                                    <option>Before meals</option>
+                                    <option>2 hours after meals</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group" data-ng-class="{'has-error': {{name}}.BGLResult.$invalid && BGLIsNewRecordsEnabled}">
+                                <div class="row">
+                                    <div class="col-xs-2 vertical-middle">
+                                        <label style="font-weight: bold;">Today's result</label>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <input data-ng-disabled="!BGLIsNewRecordsEnabled" type="number" placeholder="BGLResult" name="BGLResult" class="form-control input-md" data-ng-model="measurement.BGLResult" ng-required="BGLIsNewRecordsEnabled" shown-validation />
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-2 vertical-middle">
+                                        <label>Target range*</label>
+                                    </div>
+                                    <div class="col-xs-2" data-ng-class="{'has-error': {{name}}.BGLTargetLow.$invalid && BGLIsNewRecordsEnabled}">
+                                        <input type="number" data-ng-disabled="!BGLIsNewRecordsEnabled" placeholder="BGLTargetLow" name="BGLTargetLow" min="1" max="15" class="form-control input-md" data-ng-model="measurement.BGLTargetLow" ng-required="BGLIsNewRecordsEnabled" shown-validation />
+                                    </div>
+                                    <div class="col-xs-1 vertical-middle">
+                                        <small>and</small>
+                                    </div>
+                                    <div class="col-xs-2" data-ng-class="{'has-error': {{name}}.BGLTargetHigh.$invalid && BGLIsNewRecordsEnabled}">
+                                        <input type="number" data-ng-disabled="!BGLIsNewRecordsEnabled" placeholder="BGLTargetHigh" name="BGLTargetHigh" min="1" max="15" class="form-control input-md" data-ng-model="measurement.BGLTargetHigh" ng-required="BGLIsNewRecordsEnabled" shown-validation />
+                                    </div>
+                                    <div class="col-xs-1 vertical-middle">
+                                        <small>mmol/L</small>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="alert alert-danger" data-ng-show="BGLTargetRangeError && BGLIsNewRecordsEnabled">
+                                            Must Target Low be lower than the high target
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <small>*Default targets are as recommended by NHMRC guidelines; sourced from Diabetes Australia (2013).</small>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="alert alert-info">
+                                Optimally BGL targets and frequency of monitoring should be individualised for each patient's specific clinical requirements. Edit the target range if this information has been provided by the patient's doctor or specialist.
+                                It is particularly important that insulin users understand the significance of their results and how to respond appropriately to changes in their condition.
+                                <br />
+                                <a href="http://www.diabetesaustralia.com.au/Documents/NDSS/Resources/Diabetes_Information_Sheets/04BGlucose_2010.pdf" target="blank">More information</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <gc-bgl-gauge measurement="measurement" diabetes-type="bglAttributes['@DiabetesType']"></gc-bgl-gauge>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <textarea placeholder="BGLNotes" data-ng-disabled="!BGLIsNewRecordsEnabled" data-ng-model="measurement.BGLNotes" class="form-control"></textarea>
+                            </div>
+
+                            <label>This means that your result is</label>
+                            <div class="alert" data-ng-show="DisplayResultsRange" data-ng-class="{'alert-success': BGLWithinRange, 'alert-danger': !BGLWithinRange }" data-ng-bind="BGLWithinRange ? 'WITHIN the target range' : 'NOT WITHIN the target range'"></div>
+
+                            <div class="form-group" data-ng-class="{'has-error': {{name}}.ConductedBy.$invalid && BGLIsNewRecordsEnabled}">
+                                <label class="bold">Conducted/Recorded by:</label>
+                                <input placeholder="Conducted/Recorded by" name="ConductedBy" data-ng-disabled="!BGLIsNewRecordsEnabled" class="form-control" data-ng-model="measurement.BGLConductedBy" ng-required="BGLIsNewRecordsEnabled" />
+                            </div>
+
+                            <div class="alert alert-danger" data-ng-show="HypoWarning">
+                                <strong class="text-center">Your patient may be at risk of hypoglycaemia (BGL&lt;4mmol/L)</strong><br />
+                                <span>Check patient symptoms and take appropriate actions to address if required. For more information about management of hyperglycaemia</span><br />
+                                <a target="_blank" href="https://www.diabetesaustralia.com.au/Understanding-Diabetes/What-is-Diabetes/Hypoglycaemia">Click here</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

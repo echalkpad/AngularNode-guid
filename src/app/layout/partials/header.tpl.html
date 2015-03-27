@@ -1,0 +1,121 @@
+<header id="header">
+    <div id="logo-group">
+
+        <!-- PLACE YOUR LOGO HERE -->
+        <span id="logo"> <img data-ng-src="{{ pharmacylogo }}" alt="GuildCare"> </span>
+        <!-- END LOGO PLACEHOLDER -->
+
+        <ng-include src="'app/components/activities/activities.html'"></ng-include>
+    </div>
+
+    <recent-projects></recent-projects>
+
+    <!-- pulled right: nav area -->
+    <div class="pull-right">
+
+        <!-- collapse menu button -->
+        <div id="hide-menu" class="btn-header pull-right">
+            <span>
+                <a toggle-menu title="Collapse Menu">
+                    <i class="fa fa-reorder"></i>
+                </a>
+            </span>
+        </div>
+        <!-- end collapse menu -->
+        <!-- logout button -->
+        <div id="logout" class="btn-header transparent pull-right">
+            <span>
+                <a ui-sref="login" title="Sign Out" data-action="userLogout"
+                   data-logout-msg="You can improve your security further after logging out by closing this opened browser">
+                    <i class="fa fa-sign-out"></i>
+                </a>
+            </span>
+        </div>
+        <!-- end logout button -->
+        <!-- search mobile button (this is hidden till mobile view port) -->
+        <div id="search-mobile" class="btn-header transparent pull-right" data-search-mobile>
+            <span> <a href="#" title="Search"><i class="fa fa-search"></i></a> </span>
+        </div>
+        <!-- end search mobile button -->
+        <!-- input: search field -->
+        <!--<form action="#/search" class="header-search pull-right">
+            <input id="search-fld" type="text" name="keywords" placeholder="Find reports and more" data-autocomplete='[
+			"ActionScript",
+			"AppleScript",
+			"Asp",
+			"BASIC",
+			"C",
+			"C++",
+			"Clojure",
+			"COBOL",
+			"ColdFusion",
+			"Erlang",
+			"Fortran",
+			"Groovy",
+			"Haskell",
+			"Java",
+			"JavaScript",
+			"Lisp",
+			"Perl",
+			"PHP",
+			"Python",
+			"Ruby",
+			"Scala",
+			"Scheme"]'>
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+            <a href="$" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+        </form>-->
+        <!-- end input: search field -->
+        <!-- help button -->
+      
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+            
+            <li dropdown class="dropdown">
+                <div id="help" dropdown-toggle class="btn-header  dropdown-toggle transparent pull-right">
+                    <span>
+                        <a title="Help">
+                            <i class="fa fa-question-circle"></i>
+                        </a>
+                    </span>
+                </div>
+                <ul class="dropdown-menu" role="menu">
+
+                    <li>
+                        <a href-void="">Online Help</a>
+
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href-void="">GuildCare Help</a>
+                    </li>
+                    <li>
+                        <a href-void="">Keyboard Shortcuts</a>
+                    </li>
+                    <li>
+                        <a href-void="">About GuildCare</a>
+                    </li>
+                    <li>
+                        <a href-void="">What's New</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+        <!-- end help button -->
+        <!-- fullscreen button -->
+        <div id="fullscreen" class="btn-header transparent pull-right">
+            <span>
+                <a full-screen title="Full Screen">
+                    <i class="fa fa-arrows-alt"></i>
+                </a>
+            </span>
+        </div>
+     
+        <!-- end fullscreen button -->
+
+    </div>
+    <!-- end pulled right: nav area -->
+
+</header>

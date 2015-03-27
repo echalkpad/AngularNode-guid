@@ -1,0 +1,46 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            <i class="fa fa-pie-chart"></i> Case Statistics
+        </h2>
+    </header>
+
+    <div class="dashboard-widget">
+
+        <div class="widget-body">
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <span style="font-size: 850%; color: #d9534f">{{statistics.incomplete}}</span><br/>
+                        <!--<strong style="font-size: 200%">Incomplete Cases</strong>-->
+
+                    <div class="alert alert-danger" role="alert">
+                        Incomplete Cases. That's {{(statistics.incomplete/statistics.total)*100}}% of cases.
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="text-align: center">
+                <div class="col-md-4">
+                    <button class="btn btn-success" type="button">
+                        Completed <span class="badge">{{statistics.complete}}</span>
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-warning" type="button">
+                        Declined <span class="badge">{{statistics.declined}}</span>
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-default" type="button">
+                        Total <span class="badge">{{statistics.total}}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

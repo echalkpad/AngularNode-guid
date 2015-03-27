@@ -1,0 +1,75 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+    data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+    data-jarvis-widget="">
+
+    <header>
+        <h2>Patient Profile <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color: #d9534f;"
+            ng-show="{{name}}.$invalid"></i></h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.diabetesType.$invalid }">
+                                <label>What type of diabetes are you diagnosed with (if any)?</label>
+                                <select class="form-control input-md" placeholder="DiabetesType" name="diabetesType" ng-model="patient.BGLAttributes.DiabetesType" required>
+                                    <option>Type 1 Diabetes</option>
+                                    <option>Type 2 Diabetes</option>
+                                    <option>Gestational</option>
+                                    <option>Screening Only</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>What other medical conditions do you have (if any)?</label>
+                                <input type="text" placeholder="Other Conditions" name="otherConditions"
+                                    class="form-control input-md"
+                                    ng-model="BGLAttributes.OtherConditions">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Select medication(s) relevant to this service:</label>
+                            <div class="form-group">
+                                <select multi-select multiple style="width: 100%" class="select2" id="medications">
+                                    <optgroup label="Monitoring">
+                                        <option value="AK" selected="selected">Blood Pressure Recording</option>
+                                        <option value="HI">Weight Recording</option>
+                                        <option value="HI">Lipid Recording</option>
+                                        <option value="HI">Blood Glucose Recording</option>
+                                    </optgroup>
+                                    <optgroup label="Screening">
+                                        <option value="CA">COPD Screening</option>
+                                        <option value="NV">Cardiovascular Screening</option>
+                                    </optgroup>
+                                    <optgroup label="Medications">
+                                        <option value="CA">Dose Administration Aid</option>
+                                        <option value="NV">Weekly Medicines Check</option>
+                                        <option value="OR">HMR</option>
+                                        <option value="WA">MedsCheck</option>
+                                    </optgroup>
+                                    <optgroup label="Actions">
+                                        <option value="CA">Smoking Cessation</option>
+                                        <option value="NV">GP Visit</option>
+                                        <option value="NV">Lifestyle Change</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

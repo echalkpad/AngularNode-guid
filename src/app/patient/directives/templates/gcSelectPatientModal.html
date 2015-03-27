@@ -1,0 +1,70 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Select Patient</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" data-ng-model="vm.lastName" class="form-control borderr" placeholder="Last name">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" data-ng-model="vm.firstName" class="form-control borderr" placeholder="First name">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <gc-add-patient class="pull-right" ></gc-add-patient>
+        </div>
+        
+    </div>
+    <div class="row pad-tb-15">
+        <div class="col-md-12">
+            <table class="table table-hover select-patient-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Address and Contact Details</th>
+                    <th>Medicare Number</th>
+                    <th>Phone Number</th>
+                    <th class="bordertl">Last Dispense</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="patient in vm.patients" data-ng-click="$parent.vm.selectedPatient=patient" data-ng-init="getPatient(patient);" data-ng-class="{'selected' : $parent.vm.selectedPatient === patient}">
+                        <td>
+                            <input type="radio" name="selectedPatient" data-ng-model="$parent.vm.selectedPatient" data-ng-value="patient" />
+                        </td>
+                        <td class="col-md-2">
+                            {{patient.LastName}}
+                        </td>
+                        <td class="col-md-2">{{patient.FirstName}}</td>
+                        <td class="col-md-4">
+                            <span data-ng-bind="(patient.Address1 ? (patient.Address1) : '') + (patient.Address2 ? (' ' + patient.Address2) : '') + (patient.Suburb ? (', ' + patient.Suburb) : '') + (patient.State ? (', ' + patient.State) : '') + (patient.Postcode ? (', ' + patient.Postcode) : '')"></span>
+                        </td>
+                        <td data-ng-if="patient.ProgramId != 0" class="col-md-1">{{patient.MedicareNumber}}</td>
+                        <td data-ng-if="patient.ProgramId != 0" class="col-md-1">{{patient.PhoneNumber}}</td>
+                        <td data-ng-if="patient.ProgramId != 0" class="col-md-1">{{patient.LastDispenseDate | date:'dd/MM/yyyy'}}</td>
+
+                        <td data-ng-if="patient.ProgramId == 0" colspan="3" class="">
+                            Adhoc
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <pagination class="pull-right" total-items="vm.total" ng-model="vm.currentPage" items-per-page="vm.pageSize"></pagination>
+            <div data-ng-show="vm.loading" class="loading-conainer">
+                <i class="fa fa-gear fa-4x fa-spin"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-labeled btn-primary" data-ng-disabled="!vm.selectedPatient" ng-click="continue()"><span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Continue </button>
+    <button class="btn btn-labeled btn-default" ng-click="cancel()"><span class="btn-label"><i class="glyphicon glyphicon-repeat"></i></span>Cancel </button>
+
+</div>

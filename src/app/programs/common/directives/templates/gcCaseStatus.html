@@ -1,0 +1,34 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-colorbutton="false"
+         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+         data-jarvis-widget="">
+
+        <header>
+            <h2> Status </h2>
+        </header>
+
+        <div>
+
+            <div class="widget-body">
+                <div class="alert alert-danger"
+                     ng-show="programForm.$invalid">
+                    <strong>Incomplete case</strong>
+                    <br />
+                    More information is required before this case can be set as Conducted.
+                </div>
+
+                <div ng-form="{{name}}" novalidate>
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input type="radio" name="incomplete" id="incomplete" value="Incomplete" checked>
+                            Incomplete </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="conducted" id="conducted" value="Conducted">
+                            Conducted </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="declined" id="declined" value="Declined">
+                            Declined </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

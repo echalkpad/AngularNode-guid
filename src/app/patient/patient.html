@@ -1,0 +1,299 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+
+    <div class="row">
+        <big-breadcrumbs items="['Patient']" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></big-breadcrumbs>
+    </div>
+    <!-- widget grid -->
+    <section class="">
+
+        <!-- row -->
+        <div class="row">
+            <article class="col-sm-6 ">
+                <div class="well well-light well-sm ">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="myCarousel" style="height: auto;" class="carousel fade profile-carousel">
+                                <div class="air air-bottom-right padding-10">
+                                    <!--<button class="btn btn-labeled btn-success" data-ng-click="editPatient()"> <span class="btn-label"><i class="glyphicon glyphicon-edit"></i></span>Edit </button>-->
+                                </div>
+                                <div class="air air-top-left padding-10">
+                                    <h4 class="txt-color-white font-md">{{vm.patient.CreatedDate | date : 'd MMM, yyyy' }}</h4>
+                                </div>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                                </ol>
+                                <div class="carousel-inner">
+                                    <!-- Slide 1 -->
+                                    <div class="item active">
+                                        <img src="content/img/s1.jpg" alt="Background">
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="content/img/s2.jpg" alt="demo user">
+                                    </div>
+
+                                    <div class="item">
+                                        <img src="content/img/s3.jpg" alt="demo user">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-3 profile-pic">
+                                    <img src="content/img/defaultAvatar.png" alt="demo user" style="left: 0px;">
+
+                                    <h5><span class="label label-success">Medication reminders</span></h5>
+                                    <h5><span class="label label-danger">2 Owing scripts</span></h5>
+
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 ">
+                                        <h1>
+                                            {{vm.patient.FirstName}} <span class="semi-bold">{{vm.patient.LastName}}</span>
+                                        </h1>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 ">
+                                        <a href="javascript://" style="margin-top: 15px; display: inline-block;"><i class="fa fa-search"></i> Select New Patient</a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 ">
+                                        <p>
+                                            <i class="fa fa-home" style="vertical-align: top; padding-top: 3px;"></i>&nbsp;&nbsp;
+                                            <!--<span data-ng-bind="(vm.patient.Address1 ? (vm.patient.Address1) : '') + (vm.patient.Address2 ? (' ' + vm.patient.Address2) : '') + (vm.patient.Suburb ? (', ' + vm.patient.Suburb) : '') + (vm.patient.State ? (', ' + vm.patient.State) : '') + (vm.patient.Postcode ? (', ' + vm.patient.Postcode) : '')"></span>-->
+                                            <span style="display: inline-block;">
+                                                {{vm.patient.Address1}} {{vm.patient.Address2}} {{vm.patient.Suburb}}<br />
+                                                {{vm.patient.State}} {{vm.patient.Postcode}}<br />
+                                            </span>
+                                        </p>
+
+                                        <p>
+                                            <i class="fa fa-phone"></i>&nbsp;&nbsp;
+                                            {{vm.patient.PhoneNumber}}
+                                        </p>
+                                        <p>
+                                            <span data-tooltip-placement="top" data-tooltip="Click to send an SMS message to the patient">
+                                                <a href-void="" message-channel="SMS" patient="vm.patient" gc-send-message>
+                                                    <i class="fa fa-mobile" style="color: #333"></i>&nbsp;&nbsp;
+                                                    {{vm.patient.AltPhoneNumber}}
+                                                </a>
+                                            </span>
+                                        </p>
+                                        <p>
+
+                                            <ul class="nav navbar-nav programHeaderLinksList">
+                                                <li>
+                                                    <a href-void="" data-ng-click="edit();">Edit</a>
+                                                </li>
+                                                <li dropdown class="dropdown dropdown-large">
+                                                    <a href-void="" dropdown-toggle class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                                        <i class="fa fa-ellipsis-h"></i>Actions
+                                                    </a>
+                                                    <gc-services-list patient-id="vm.patientId" class="dropdown-menu dropdown-menu-large row program-header-dropdown-large" style="min-width: 1000px;"></gc-services-list>
+                                                </li>
+                                            </ul>
+                                        </p>
+
+
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-6 ">
+                                        <p>
+                                            <i class="fa {{vm.patient.Gender | genderIcon}}"></i>&nbsp;&nbsp;
+                                            {{vm.patient.Gender | gender}}
+                                        </p>
+
+                                        <p>
+                                            <i class="fa  fa-birthday-cake"></i>&nbsp;&nbsp;
+                                            {{vm.patient.DateOfBirth | date : 'd MMMM yyyy' }}
+                                        </p>
+
+                                        <p>
+                                            <i class="fa fa-list-alt"></i>&nbsp;&nbsp;
+                                            {{vm.patient.MedicareNumber}}
+                                        </p>
+                                        <p>
+                                            <span data-tooltip-placement="top" data-tooltip="Click to send an email to the patient">
+                                                <a href-void="" message-channel="EMAIL" patient="vm.patient" gc-send-message>
+                                                    <i class="fa fa-envelope" style="color: #333"></i>&nbsp;&nbsp;
+                                                    {{vm.patient.EmailAddress}}
+                                                </a>
+                                            </span>
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+
+                            <div class="row row-space">
+                                <div class="col-sm-3 text-right">
+                                    <label class="bold">Allergies</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <tags-input class="tags-italic" ng-model="vm.patientAllergies" placeholder="Add a new Allergen" on-tag-added="addAllergen($tag)" on-tag-removed="removeAllergen($tag)" add-from-autocomplete-only="true" display-property="AllergenText">
+                                        <auto-complete debounce-delay="50" min-length="1" source="loadAllergies($query)"></auto-complete>
+                                    </tags-input>
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-sm-3 text-right">
+                                    <label class="bold">Conditions</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <tags-input class="tags-italic" ng-model="vm.patientConditions" placeholder="Add a new Condition" on-tag-added="addCondition($tag)" on-tag-removed="removeCondition($tag)" add-from-autocomplete-only="true" display-property="ConditionName">
+                                        <auto-complete debounce-delay="50" min-length="1" source="loadConditions($query)"></auto-complete>
+                                    </tags-input>
+
+                                </div>
+                            </div>
+                            <div class="row row-space">
+                                <div class="col-sm-3 text-right">
+                                    <label class="bold">Notes</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="tabs-left notes-tab">
+                                        <ul class="nav nav-tabs tabs-left" id="demo-pill-nav">
+                                            <li class="active">
+                                                <a href="#tab-r1" data-toggle="tab"><span class="badge bg-color-red txt-color-white">12</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab-r2" data-toggle="tab"><span class="badge bg-color-yellow txt-color-white">3</span></a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab-r3" data-toggle="tab"><span class="badge bg-color-green txt-color-white">0</span></a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab-r1">
+                                                <p>
+                                                    12/11/2014 <br />
+                                                    Contact before Despensing
+                                                </p>
+                                            </div>
+                                            <div class="tab-pane" id="tab-r2">
+                                                <p>
+                                                    Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony.
+                                                </p>
+                                            </div>
+                                            <div class="tab-pane" id="tab-r3">
+                                                <p>
+                                                    Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="row row-space">
+                                        <div class=" col-xs-offset-3 col-sm-12">
+                                            <ul class="nav navbar-nav programHeaderLinksList">
+                                                <li>
+
+                                                    <button patient="vm.patient" gc-send-message class="btn btn-default btn-labeled ">
+                                                        <span class="btn-label"><i class="fa fa-paper-plane"></i></span>Send message
+                                                    </button>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- end row -->
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="col-sm-6">
+                <gc-patient-medications scripts="vm.scripts"></gc-patient-medications>
+            </article>
+        </div>
+
+        <!-- end row -->
+        <!-- row -->
+
+        <div class="row">
+
+            <article class="col-sm-6">
+                <div class="well well-sm">
+                    <ul id="myTab1" class="nav nav-tabs bordered">
+                        <li class="active">
+                            <a href="#s1" data-toggle="tab">GuildCare<span class="badge bg-color-blue txt-color-white">{{vm.documents.length}}</span></a>
+                        </li>
+                        <li>
+                            <a href="#s2" data-toggle="tab"><i class="fa fa-fw fa-fw fa-inbox"></i>Messages</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent1" class="tab-content padding-10">
+                        <div class="tab-pane fade in active" id="s1">
+
+                            <table class="table table-bordered patient-detail-qualifications">
+                                <thead>
+                                    <tr>
+                                        <th class="col-xs-4">Service</th>
+                                        <th class="col-xs-3">Detail</th>
+                                        <th class="col-xs-2">Date</th>
+                                        <th class="col-xs-3">Case#</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="document in vm.documents">
+                                        <td>{{getProgramName(document.ProgramId)}}</td>
+                                        <td>
+                                            <span class="label {{document.QualificationStatus | qualiciationStatus}}">{{document.QualificationStatus}}</span><br />
+                                            {{document.QualificationValue}}
+                                        </td>
+                                        <td>{{document.CreatedDate  | date:'dd/MM/yyyy'}}</td>
+                                        <td class="">
+                                            <gc-program-button services="vm.services" qualification="document"></gc-program-button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="s2">
+                            <p>
+                                Messages data...
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="col-sm-6">
+                <div data-sparkline-container data-easy-pie-chart-container>
+
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <gc-time-line patient-id="vm.patientId" services="vm.services"></gc-time-line>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                </div>
+
+            </article>
+
+        </div>
+
+        <!-- end row -->
+
+    </section>
+    <!-- end widget grid -->
+
+</div>
+<!-- END MAIN CONTENT -->

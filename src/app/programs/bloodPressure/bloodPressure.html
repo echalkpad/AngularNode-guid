@@ -1,0 +1,85 @@
+﻿<!-- MAIN CONTENT -->
+<form name="programForm" id="programForm">
+    <div id="content"  style="">
+
+        <gc-program-header title="Blood Pressure Recording"
+                           preparation-date="vm.document.PSProgramModel.PreparationDate"
+                           program-document-id="vm.ProgramDocumentId"
+                           display-ndss="false"
+                           patient-id="vm.patientId"
+                           display-pharmacist-initials="false"
+                           name="programHeader"
+                           patient="vm.document.PSProgramModel.Patient"
+                           report-name="BpsReport"></gc-program-header>
+
+        <section id="widget-grid" widget-grid>
+
+
+            <div class="row">
+                <!--<div class="col-sm-12 col-md-12 col-lg-6">
+                    <gc-follow-up-options name="followUpOptions"
+                                          phone-number="vm.programDocument.PSProgramModel.Patient.PhoneNumber"
+                                          mobile-number="vm.programDocument.PSProgramModel.Patient.AlternateContactNumber"
+                                          sms-reminders="vm.programDocument.PSProgramModel.Patient.SmsReminders"
+                                          follow-up-call="vm.programDocument.PSProgramModel.Patient.FollowUpCall"></gc-follow-up-options>
+                </div>-->
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-blood-pressure name="bloodPressureRecording" patient-history="vm.document.PatientHistory" measurements="vm.document.BloodPressureMeasurements.BloodPressureMeasurement" pharmacist="vm.document.PSProgramModel.Pharmacist"></gc-blood-pressure>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <gc-pharmacist-recommendations disable="recommendationsDisable" name="pharmacistRecommendations"
+                                                   pharmacist="vm.document.PSProgramModel.Pharmacist"
+                                                   recommendations="vm.document.PSProgramModel.Recommendations.Recommendation"
+                                                   actions="vm.document.Actions.Action"
+                                                   show-other="false"
+                                                   allow-recommendations="DoctorReferral,ReportToDoctor,BloodPressureMonitoring,MedicinesAdherence,WeeklyMedicinesPack,HomeMedicinesReview,WeightRecord"></gc-pharmacist-recommendations>
+                </div>
+
+                
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+
+                        <header>
+                            <h2>Information about Blood Pressure</h2>
+                        </header>
+
+                        <div>
+                            <div class="widget-body">
+
+                                Blood Pressure is the measure of how hard blood is pressing against artery walls as it travels around the body. If your blood pressure remains high (called 'hypertension'), it can lead to serious problems such as heart attack, a stroke, heart failure or kidney disease. The two blood pressure readings measured were the 'Systolic' (the artery pressure when your heart is pumping) and 'Diastolic' (the artery pressure when your heart is filling). Your heart rate was also measured. Your Pharmacist and Doctor can help you control your blood pressure through medicines, lifestyle choices and monitoring.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-bp-progress measurements="vm.document.BloodPressureMeasurements.BloodPressureMeasurement"></gc-bp-progress>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-blood-pressure-measurements measurements="vm.document.BloodPressureMeasurements.BloodPressureMeasurement"></gc-blood-pressure-measurements>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-blood-pressure-actions actions="vm.document.Actions.Action"></gc-blood-pressure-actions>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</form>
+<!-- END MAIN CONTENT -->

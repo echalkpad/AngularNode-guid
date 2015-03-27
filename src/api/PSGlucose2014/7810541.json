@@ -1,0 +1,370 @@
+{
+  "?xml": {
+    "@version": "1.0"
+  },
+  "PSGlucoseRecordingModel": {
+    "@xmlns:xs": "http://www.w3.org/2001/XMLSchema-instance",
+    "@ClaimReference": "",
+    "PSProgramModel": {
+      "Description": null,
+      "PreparationDate": "2014-12-09T17:42:42.097",
+      "PSPharmacy": {
+        "eGuildId": "10706",
+        "PharmacistInitials": null,
+        "Details": {
+          "VendorID": "FD",
+          "ApprovalNumber": "14584N",
+          "PharmacyName": "Barraba Pharmacy",
+          "PharmacyAddress1": "113-115 Queen St.",
+          "PharmacyAddress2": null,
+          "PharmacySuburb": "Barraba",
+          "PharmacyPostcode": "2347",
+          "PharmacyState": "NSW",
+          "PharmacyPhoneNumber": "02 67821091"
+        }
+      },
+      "Patient": {
+        "PatientID": "11584",
+        "FirstName": "MALCOLM",
+        "LastName": "SAILLARD",
+        "MedicareFirstName": null,
+        "MedicareLastName": null,
+        "PatientAddressLine1": "2/34 GOTHA ST",
+        "PatientAddressLine2": null,
+        "PatientSuburb": "BARRABA",
+        "PatientPostcode": "2347",
+        "PatientState": "NSW",
+        "MedicareNumber": "21635181781",
+        "EntitlementNumber": null,
+        "DVANumber": null,
+        "SafetyNetNumber": null,
+        "PhoneNumber": null,
+        "AlternateContactNumber": null,
+        "EmailAddress": null,
+        "DateOfBirth": null,
+        "Gender": "M",
+        "Scripts": {
+          "Script": [
+            {
+              "ScriptID": "756764",
+              "OriginalScriptNumber": "756764",
+              "DatePrescribed": "28012014",
+              "DateDispensed": "23082014",
+              "MedicationID": "PERI40",
+              "PBSCode": "3050M",
+              "Manufacturer": "UA",
+              "AMTNumber": null,
+              "DrugName": "Use FullDrugName",
+              "DrugForm": "TAB",
+              "DrugStrength": "2mg",
+              "QuantityPrescribed": "30",
+              "QuantityUnitOfMeasure": null,
+              "RepeatNumber": "5",
+              "RepeatsPrescribed": "5",
+              "Directions": "Take ONE tablet daily",
+              "GenericName": "PERINDOPRIL ERBUMINE",
+              "FullDrugName": "PERINDOPRIL (ACTAVIS) 2mg",
+              "AuthorityNumber": null,
+              "IsReversal": "false",
+              "NumDaysOfSupply": "30",
+              "PrescriberID": "798550",
+              "PrescriberGivenName": null,
+              "PrescriberLastName": null,
+              "PrescriberAddress1": null,
+              "PrescriberAddress2": null,
+              "PrescriberSuburb": null,
+              "PrescriberState": null,
+              "PrescriberPostcode": null,
+              "PrescriberPhoneNumber": null,
+              "Price": "0",
+              "LastRepeatScriptDate": null,
+              "FormCategory": "2",
+              "ImmediateSupplyNecessary": "false",
+              "Regulation24": "false",
+              "PaymentCategory": "3"
+            },
+            {
+              "ScriptID": "756763",
+              "OriginalScriptNumber": "756763",
+              "DatePrescribed": "28012014",
+              "DateDispensed": "23082014",
+              "MedicationID": "SPIR3",
+              "PBSCode": "8626B",
+              "Manufacturer": "BY",
+              "AMTNumber": null,
+              "DrugName": "Use FullDrugName",
+              "DrugForm": "INH-CAP",
+              "DrugStrength": "18mcg",
+              "QuantityPrescribed": "30",
+              "QuantityUnitOfMeasure": null,
+              "RepeatNumber": "5",
+              "RepeatsPrescribed": "5",
+              "Directions": "Inhale the contents of ONE capsule using inhaler daily",
+              "GenericName": "TIOTROPIUM BROMIDE",
+              "FullDrugName": "SPIRIVA 18mcg",
+              "AuthorityNumber": null,
+              "IsReversal": "false",
+              "NumDaysOfSupply": "30",
+              "PrescriberID": "798550",
+              "PrescriberGivenName": null,
+              "PrescriberLastName": null,
+              "PrescriberAddress1": null,
+              "PrescriberAddress2": null,
+              "PrescriberSuburb": null,
+              "PrescriberState": null,
+              "PrescriberPostcode": null,
+              "PrescriberPhoneNumber": null,
+              "Price": "0",
+              "LastRepeatScriptDate": null,
+              "FormCategory": "2",
+              "ImmediateSupplyNecessary": "false",
+              "Regulation24": "false",
+              "PaymentCategory": "3"
+            },
+            {
+              "ScriptID": "753299",
+              "OriginalScriptNumber": "753299",
+              "DatePrescribed": "28072014",
+              "DateDispensed": "28072014",
+              "MedicationID": "VENT3",
+              "PBSCode": null,
+              "Manufacturer": "GK",
+              "AMTNumber": null,
+              "DrugName": "Use FullDrugName",
+              "DrugForm": "MET-AERO",
+              "DrugStrength": "200 Dose",
+              "QuantityPrescribed": "1",
+              "QuantityUnitOfMeasure": null,
+              "RepeatNumber": "0",
+              "RepeatsPrescribed": "0",
+              "Directions": "Shake well and inhale ONE to TWO puffs by mouth up to FOUR times a day when required as directed by your doctor",
+              "GenericName": "SALBUTAMOL CFC FREE",
+              "FullDrugName": "VENTOLIN CFC FREE 200 Dose",
+              "AuthorityNumber": null,
+              "IsReversal": "false",
+              "NumDaysOfSupply": "30",
+              "PrescriberID": "0",
+              "PrescriberGivenName": null,
+              "PrescriberLastName": null,
+              "PrescriberAddress1": null,
+              "PrescriberAddress2": null,
+              "PrescriberSuburb": null,
+              "PrescriberState": null,
+              "PrescriberPostcode": null,
+              "PrescriberPhoneNumber": null,
+              "Price": "0",
+              "LastRepeatScriptDate": null,
+              "FormCategory": "1",
+              "ImmediateSupplyNecessary": "false",
+              "Regulation24": "false",
+              "PaymentCategory": "6"
+            },
+            {
+              "ScriptID": "770619",
+              "OriginalScriptNumber": "770619",
+              "DatePrescribed": "05122014",
+              "DateDispensed": "05122014",
+              "MedicationID": "COAM1",
+              "PBSCode": "9346X",
+              "Manufacturer": "SE",
+              "AMTNumber": null,
+              "DrugName": "Use FullDrugName",
+              "DrugForm": "TAB",
+              "DrugStrength": "5mg/5mg",
+              "QuantityPrescribed": "30",
+              "QuantityUnitOfMeasure": null,
+              "RepeatNumber": "0",
+              "RepeatsPrescribed": "5",
+              "Directions": "Take ONE tablet in the morning",
+              "GenericName": "PERINDOPRIL ARG/AMLODIPINE",
+              "FullDrugName": "COVERAM 5/5 5mg/5mg",
+              "AuthorityNumber": null,
+              "IsReversal": "false",
+              "NumDaysOfSupply": "30",
+              "PrescriberID": "2164739",
+              "PrescriberGivenName": null,
+              "PrescriberLastName": null,
+              "PrescriberAddress1": null,
+              "PrescriberAddress2": null,
+              "PrescriberSuburb": null,
+              "PrescriberState": null,
+              "PrescriberPostcode": null,
+              "PrescriberPhoneNumber": null,
+              "Price": "0",
+              "LastRepeatScriptDate": null,
+              "FormCategory": "1",
+              "ImmediateSupplyNecessary": "false",
+              "Regulation24": "false",
+              "PaymentCategory": "3"
+            },
+            {
+              "ScriptID": "770627",
+              "OriginalScriptNumber": "770627",
+              "DatePrescribed": "05122014",
+              "DateDispensed": "05122014",
+              "MedicationID": "SPIR3",
+              "PBSCode": "8626B",
+              "Manufacturer": "BY",
+              "AMTNumber": null,
+              "DrugName": "Use FullDrugName",
+              "DrugForm": "INH-CAP",
+              "DrugStrength": "18mcg",
+              "QuantityPrescribed": "30",
+              "QuantityUnitOfMeasure": null,
+              "RepeatNumber": "0",
+              "RepeatsPrescribed": "0",
+              "Directions": "Inhale the contents of ONE capsule using inhaler daily",
+              "GenericName": "TIOTROPIUM BROMIDE",
+              "FullDrugName": "SPIRIVA 18mcg",
+              "AuthorityNumber": null,
+              "IsReversal": "false",
+              "NumDaysOfSupply": "30",
+              "PrescriberID": "132194",
+              "PrescriberGivenName": null,
+              "PrescriberLastName": null,
+              "PrescriberAddress1": null,
+              "PrescriberAddress2": null,
+              "PrescriberSuburb": null,
+              "PrescriberState": null,
+              "PrescriberPostcode": null,
+              "PrescriberPhoneNumber": null,
+              "Price": "0",
+              "LastRepeatScriptDate": null,
+              "FormCategory": "1",
+              "ImmediateSupplyNecessary": "false",
+              "Regulation24": "false",
+              "PaymentCategory": "3"
+            }
+          ]
+        },
+        "MemoCare": {
+          "@MemoCareActive": "false",
+          "@MemoCareRecipient": "",
+          "@MemoCareChannel": ""
+        }
+      },
+      "Recommendations": {
+        "Recommendation": [
+          {
+            "@Name": "DoctorReferral",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "ReportToDoctor",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "WeeklyMedicinesPack",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "HomeMedicinesReview",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "MedicinesAdherence",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "WeightRecord",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "BloodPressureMonitoring",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "PharmacyFollowup",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "MedsCheck",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "SmokingCessation",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "InhalerTechniqueCheck",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "LipidRecordingService",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "Other",
+            "@Selected": "false"
+          },
+          {
+            "@Name": "LifestyleBehaviouralChanges",
+            "@Selected": "false"
+          }
+        ]
+      },
+      "Pharmacist": {
+        "FirstName": null,
+        "LastName": null,
+        "Comments": null
+      }
+    },
+    "BGLMeasurements": null,
+    "HbA1cMeasurements": null,
+    "BGLMedications": {
+      "BGLMedication": [
+        {
+          "@Directions": "Inhale the contents of ONE capsule using inhaler daily",
+          "@PrecriberLastName": "",
+          "@PrescriberGivenName": " [132194]",
+          "@OrignalScriptNumber": "770627",
+          "@FullDrugName": "SPIRIVA 18mcg",
+          "@Selected": "false",
+          "@PrescriberID": "132194"
+        },
+        {
+          "@Directions": "Take ONE tablet in the morning",
+          "@PrecriberLastName": "",
+          "@PrescriberGivenName": " [2164739]",
+          "@OrignalScriptNumber": "770619",
+          "@FullDrugName": "COVERAM 5/5 5mg/5mg",
+          "@Selected": "false",
+          "@PrescriberID": "2164739"
+        },
+        {
+          "@Directions": "Take ONE tablet daily",
+          "@PrecriberLastName": "",
+          "@PrescriberGivenName": " [798550]",
+          "@OrignalScriptNumber": "756764",
+          "@FullDrugName": "PERINDOPRIL (ACTAVIS) 2mg",
+          "@Selected": "false",
+          "@PrescriberID": "798550"
+        },
+        {
+          "@Directions": "Shake well and inhale ONE to TWO puffs by mouth up to FOUR times a day when required as directed by your doctor",
+          "@PrecriberLastName": "",
+          "@PrescriberGivenName": " [0]",
+          "@OrignalScriptNumber": "753299",
+          "@FullDrugName": "VENTOLIN CFC FREE 200 Dose",
+          "@Selected": "true",
+          "@PrescriberID": "0"
+        }
+      ]
+    },
+    "BGLAttributes": {
+      "@NDSSNumber": "",
+      "@DiabetesType": "",
+      "@DiabetesOtherDetail": "",
+      "@InsulinUser": "Yes",
+      "@DiabetesActionPlan": "No",
+      "@SelfMonitorDeviceType": "",
+      "@SelfMonitorTestFrequency": "",
+      "@SelfMonitorTestFrequencyDetail": "",
+      "@SelfMonitorReason": ""
+    },
+    "PatientHistory": {
+      "Conditions": null,
+      "OtherConditions": null
+    }
+  }
+}

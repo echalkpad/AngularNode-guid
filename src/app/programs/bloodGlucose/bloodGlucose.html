@@ -1,0 +1,63 @@
+﻿<!-- MAIN CONTENT -->
+
+
+<form name="programForm" id="programForm">
+    <div id="content" style="">
+
+        <gc-program-header status-list="vm.statusList"
+                           preparation-date="vm.document.PSProgramModel.PreparationDate"
+                           pharmacist-initials="vm.document.PSProgramModel.PSPharmacy.PharmacistInitials"
+                           display-ndss="true"
+                           display-pharmacist-initials="true"
+                           patient-id="vm.patientId"
+                           ndss="vm.document.BGLAttributes['@NDSSNumber']" title="Blood Glucose Recording"
+                           name="programHeader" patient="vm.document.PSProgramModel.Patient" program-document-id="vm.ProgramDocumentId"></gc-program-header>
+
+        <section id="widget-grid" widget-grid>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-bgl-patient-profile name="bglPatientProfile" medications-list="vm.medications" patient-history="vm.document.PatientHistory" bgl-medications="vm.document.BGLMedications.BGLMedication" bgl-attributes="vm.document.BGLAttributes"></gc-bgl-patient-profile>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-self-manage-diabetes name="SelfManageDiabetes" bgl-attributes="vm.document.BGLAttributes"></gc-self-manage-diabetes>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-bgl-measurements name="BglMeasurements" bgl-measurements="vm.document.BGLMeasurements.BGLMeasurement" bgl-attributes="vm.document.BGLAttributes"></gc-bgl-measurements>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-hba1c-measurements name="Hba1cMeasurements" hba1c-measurement="vm.document.HbA1cMeasurements.HbA1cMeasurement"></gc-hba1c-measurements>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    
+                    <gc-bgl-progress name="BglProgress" bgl-measurements="vm.document.BGLMeasurements.BGLMeasurement" hba1c-measurement="vm.document.HbA1cMeasurements.HbA1cMeasurement"></gc-bgl-progress>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-pharmacist-recommendations name="pharmacistRecommendations"
+                                                   pharmacist="vm.document.PSProgramModel.Pharmacist"
+                                                   recommendation-other-detail="vm.document.BGLAttributes.RecommendationOtherDetail"
+                                                   recommendations="vm.document.PSProgramModel.Recommendations.Recommendation"
+                                                   show-other="true"
+                                                   allow-recommendations="DoctorReferral,ReportToDoctor,LipidRecordingService,WeeklyMedicinesPack,BloodPressureRecordingService,HomeMedicinesReview"></gc-pharmacist-recommendations>
+                </div>
+            </div>
+
+
+        </section>
+
+    </div>
+</form>
+<!-- END MAIN CONTENT -->

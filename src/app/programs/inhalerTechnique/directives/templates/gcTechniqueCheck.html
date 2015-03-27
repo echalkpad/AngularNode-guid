@@ -1,0 +1,136 @@
+﻿
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false"
+     data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false"
+     data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Now it's your turn! <i class="fa fa-lg fa-fw fa-exclamation-triangle"
+                                   style="color:#d9534f;" ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+        <div class="widget-body">
+            <form name="{{name}}" novalidate>
+                <p>
+                    <strong>Using a demonstration device, show me the steps you would take to use your inhaler.</strong>
+                </p>
+                <fieldset style="padding-left: 20px;" data-ng-show="inhalerVisibility.WithSpacerVisible">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>METERED DOSE INHALER (MDI) WITH A SPACER</strong>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>TICK IF PERFORMED</strong>
+                        </div>
+
+                    </div>
+                    <gc-technique-check-row order="1" text="Assemble spacer" item="document.CheckListSpacer['@Assemble']"></gc-technique-check-row>
+                    <gc-technique-check-row order="2" text="Remove inhaler cap" item="document.CheckListSpacer['@RemoveCap']"></gc-technique-check-row>
+                    <gc-technique-check-row order="3" text="Hold inhaler upright and shake well" item="document.CheckListSpacer['@Upright']"></gc-technique-check-row>
+                    <gc-technique-check-row order="4" text="Insert inhaler upright into spacer" item="document.CheckListSpacer['@InsertSpacer']"></gc-technique-check-row>
+                    <gc-technique-check-row order="5" text="Put mouthpiece between teeth without biting and close lips to form good seal" item="document.CheckListSpacer['@MouthpieceSeal']"></gc-technique-check-row>
+                    <gc-technique-check-row order="6" text="Breathe out gently" item="document.CheckListSpacer['@BreatheOut']"></gc-technique-check-row>
+                    <gc-technique-check-row order="7" text="Hold spacer level and press down firmly on canister once" item="document.CheckListSpacer['@SpacerLevel']"></gc-technique-check-row>
+                    <gc-technique-check-row order="8" text="Breathe in slowly and deeply" item="document.CheckListSpacer['@BreatheSlowDeep']"></gc-technique-check-row>
+                    <gc-technique-check-row order="9" text="Hold breath for about 10 seconds or as long as comfortable" item="document.CheckListSpacer['@HoldBreath10']"></gc-technique-check-row>
+                    <gc-technique-check-row order="10" text="While holding breath, remove spacer from mouth" item="document.CheckListSpacer['@HoldBreathRemove']"></gc-technique-check-row>
+                    <gc-technique-check-row order="11" text="Breathe out gently away from mouthpiece" item="document.CheckListSpacer['@BreathOutGently']"></gc-technique-check-row>
+                    <gc-technique-check-row order="12" text="Remove inhaler from spacer" item="document.CheckListSpacer['@RemoveInhaler']"></gc-technique-check-row>
+                    <gc-technique-check-row order="13" text="If an extra dose is needed, wait 1 minute and then repeat steps 3 to 12" item="document.CheckListSpacer['@ExtraDose']"></gc-technique-check-row>
+                    <gc-technique-check-row order="14" text="Replace cap and disassemble spacer" item="document.CheckListSpacer['@ReplaceCap']"></gc-technique-check-row>
+
+                </fieldset>
+
+                <fieldset style="padding-left: 20px;" data-ng-show="inhalerVisibility.WithoutSpacerVisible">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>METERED DOSE INHALER (MDI) WITHOUT A SPACER</strong>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>TICK IF PERFORMED</strong>
+                        </div>
+
+                    </div>
+                    <gc-technique-check-row order="1" text="Remove cap" item="document.CheckListWithoutSpacer['@RemoveCap']"></gc-technique-check-row>
+                    <gc-technique-check-row order="2" text="Hold inhaler upright and shake well" item="document.CheckListWithoutSpacer['@Upright']"></gc-technique-check-row>
+                    <gc-technique-check-row order="3" text="Breathe out gently" item="document.CheckListWithoutSpacer['@BreatheOut']"></gc-technique-check-row>
+                    <gc-technique-check-row order="4" text="Put mouthpiece between teeth without biting and close lips to form good seal" item="document.CheckListWithoutSpacer['@MouthpieceSeal']"></gc-technique-check-row>
+                    <gc-technique-check-row order="5" text="Start to breathe in slowly through mouth and press down ﬁrmly on canister" item="document.CheckListWithoutSpacer['@BreathIn']"></gc-technique-check-row>
+                    <gc-technique-check-row order="6" text="Continue to breathe in slowly and deeply" item="document.CheckListWithoutSpacer['@BreatheSlowDeep']"></gc-technique-check-row>
+                    <gc-technique-check-row order="7" text="Hold breath for about 10 seconds or as long as comfortable" item="document.CheckListWithoutSpacer['@HoldBreath10']"></gc-technique-check-row>
+                    <gc-technique-check-row order="8" text="While holding breath, remove inhaler from mouth" item="document.CheckListWithoutSpacer['@HoldBreathRemove']"></gc-technique-check-row>
+                    <gc-technique-check-row order="9" text="Breathe out gently away from mouthpiece" item="document.CheckListWithoutSpacer['@BreathOutGently']"></gc-technique-check-row>
+                    <gc-technique-check-row order="10" text="If an extra dose is needed, wait 1 minute and then repeat steps 2 to 9" item="document.CheckListWithoutSpacer['@ExtraDose']"></gc-technique-check-row>
+                    <gc-technique-check-row order="11" text="Replace cap" item="document.CheckListWithoutSpacer['@ReplaceCap']"></gc-technique-check-row>
+                </fieldset>
+
+                <fieldset style="padding-left: 20px;" data-ng-show="inhalerVisibility.HandihalerVisible">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>Handihaler</strong>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>TICK IF PERFORMED</strong>
+                        </div>
+
+                    </div>
+                    <gc-technique-check-row order="1" text="Open cap" item="document.CheckListHandihaler['@RemoveCap']"></gc-technique-check-row>
+                    <gc-technique-check-row order="2" text="Open mouthpiece" item="document.CheckListHandihaler['@Step2OpenMouthpiece']"></gc-technique-check-row>
+                    <gc-technique-check-row order="3" text="Remove capsule from blister and place in chamber" item="document.CheckListHandihaler['@Step3RemoveCapsule']"></gc-technique-check-row>
+                    <gc-technique-check-row order="4" text="Close mouthpiece until it clicks" item="document.CheckListHandihaler['@Step4CloseMouthpiece']"></gc-technique-check-row>
+                    <gc-technique-check-row order="5" text="Press green piercing button in once and release" item="document.CheckListHandihaler['@Step5PiercingButton']"></gc-technique-check-row>
+                    <gc-technique-check-row order="6" text="Breathe out gently away from mouthpiece" item="document.CheckListHandihaler['@Step6BreatheOut']"></gc-technique-check-row>
+                    <gc-technique-check-row order="7" text="Put mouthpiece between teeth without biting and close lips to form good seal" item="document.CheckListHandihaler['@Step7MouthpieceSeal']"></gc-technique-check-row>
+                    <gc-technique-check-row order="8" text="Breathe in slowly and deeply, so capsule vibrates" item="document.CheckListHandihaler['@Step8BreatheSlowDeep']"></gc-technique-check-row>
+                    <gc-technique-check-row order="9" text="Continue to breathe in as long as comfortable" item="document.CheckListHandihaler['@Step9ContinueToBreathe']"></gc-technique-check-row>
+                    <gc-technique-check-row order="10" text="While holding breath, remove inhaler from mouth" item="document.CheckListHandihaler['@Step10HoldBreathRemove']"></gc-technique-check-row>
+                    <gc-technique-check-row order="11" text="Breathe out gently away from mouthpiece" item="document.CheckListHandihaler['@Step11BreathOutGently']"></gc-technique-check-row>
+                    <gc-technique-check-row order="12" text="Put mouthpiece back between teeth without biting and close lips to form good seal" item="document.CheckListHandihaler['@Step12MouthpieceSeal']"></gc-technique-check-row>
+                    <gc-technique-check-row order="13" text="Breathe in slowly and deeply again, so capsule vibrates" item="document.CheckListHandihaler['@Step13BreatheSlowDeep']"></gc-technique-check-row>
+                    <gc-technique-check-row order="14" text="Continue to breathe in as long as comfortable" item="document.CheckListHandihaler['@Step14ContinueToBreathe']"></gc-technique-check-row>
+                    <gc-technique-check-row order="15" text="While holding breath, remove inhaler from mouth" item="document.CheckListHandihaler['@Step15HoldBreathRemove']"></gc-technique-check-row>
+                    <gc-technique-check-row order="16" text="Breathe out gently away from mouthpiece" item="document.CheckListHandihaler['@Step16BreathOutGently']"></gc-technique-check-row>
+                    <gc-technique-check-row order="17" text="Open mouthpiece and remove used capsule" item="document.CheckListHandihaler['@Step17OpenMouthpiece']"></gc-technique-check-row>
+                    <gc-technique-check-row order="18" text="If an extra dose is needed, repeat steps 3 to 17" item="document.CheckListHandihaler['@Step18ExtraDose']"></gc-technique-check-row>
+                    <gc-technique-check-row order="19" text="Close mouthpiece and cap" item="document.CheckListHandihaler['@Step19ReplaceCap']"></gc-technique-check-row>
+                </fieldset>
+
+                <fieldset style="padding-left: 20px;" data-ng-show="inhalerVisibility.AccuhalerVisible">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>Accuhaler</strong>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <strong>TICK IF PERFORMED</strong>
+                        </div>
+
+                    </div>
+                    <gc-technique-check-row order="1" text="Check dose counter" item="document.CheckListAccuhaler['@Step1Check']"></gc-technique-check-row>
+                    <gc-technique-check-row order="2" text="Open using thumb grip" item="document.CheckListAccuhaler['@Step2Open']"></gc-technique-check-row>
+                    <gc-technique-check-row order="3" text="Holding horizontally, load dose by sliding lever until it clicks" item="document.CheckListAccuhaler['@Step3LoadDose']"></gc-technique-check-row>
+                    <gc-technique-check-row order="4" text="Breathe out gently away from mouthpiece" item="document.CheckListAccuhaler['@Step4BreatheOut']"></gc-technique-check-row>
+                    <gc-technique-check-row order="5" text="Place mouthpiece in mouth and seal lips" item="document.CheckListAccuhaler['@Step5MouthpieceSeal']"></gc-technique-check-row>
+                    <gc-technique-check-row order="6" text="Breathe in steadily and deeply" item="document.CheckListAccuhaler['@Step6BreatheSlowDeep']"></gc-technique-check-row>
+                    <gc-technique-check-row order="7" text="Hold breath for about 10 seconds or as long as comfortable" item="document.CheckListAccuhaler['@Step7HoldBreathFor10']"></gc-technique-check-row>
+                    <gc-technique-check-row order="8" text="While holding breath, remove inhaler from mouth" item="document.CheckListAccuhaler['@Step8HoldBreathRemove']"></gc-technique-check-row>
+                    <gc-technique-check-row order="9" text="Breathe out gently away from mouthpiece" item="document.CheckListAccuhaler['@Step9BreathOut']"></gc-technique-check-row>
+                    <gc-technique-check-row order="10" text="If an extra dose is needed, repeat steps 3 to 9" item="document.CheckListAccuhaler['@Step10ExtraDose']"></gc-technique-check-row>
+                    <gc-technique-check-row order="11" text="Close cover to click shut" item="document.CheckListAccuhaler['@Step11Close']"></gc-technique-check-row>
+
+                </fieldset>
+
+                <p>
+                    <strong >You can use the above check list to keep your inhaler technique on track in the future.</strong>
+                    <div class="clearfix"></div>
+                    <span>Fields that are marked with a NO indicate areas of your technique that you may need to focus on.</span>
+                    <div class="clearfix" style="margin-top: 5px;"></div>
+                    <small>Checklist reference:  National Asthma Council Australia 2008 'Inhaler technique in adults with Asthma or COPD'</small>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

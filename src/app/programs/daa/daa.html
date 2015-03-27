@@ -1,0 +1,103 @@
+﻿<!-- MAIN CONTENT -->
+<form name="programForm" id="programForm">
+    <div id="content"  style="">
+
+        <gc-program-header title="Weekly Medicines Pack"
+                           preparation-date="vm.document.PSProgramModel.PreparationDate"
+                           program-document-id="vm.ProgramDocumentId"
+                           display-ndss="false"
+                           display-pharmacist-initials="false"
+                           name="programHeader"
+                           patient-id="vm.patientId"
+                           patient="vm.document.PSProgramModel.Patient"></gc-program-header>
+
+        <section id="widget-grid" widget-grid>
+
+
+            <div class="row">
+                
+
+
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+
+                        <header>
+                            <h2>Your packable medicines</h2>
+                        </header>
+
+                        <div>
+                            <div class="widget-body">
+                                <textarea class="form-control" data-ng-model="vm.document.PackableMedicines" placeholder="Packable Medicines"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+
+                        <header>
+                            <h2>The benefits of weekly medicines pack from your pharmacist</h2>
+                        </header>
+
+                        <div>
+                            <div class="widget-body">
+                                <p>Medicines are a health tool that are used to improve or maintain health. Sometimes medicines can be difficult to manage, especially when taking a number of medicines.</p>
+                                <p>Managing yours or a family member's medicines can be made simple with help from your Pharmacist:</p>
+                                <ul>
+                                    <li>Every week your pharmacist can arrange all the medicines into a &quot;Medicine Pack&quot;.</li>
+                                    <li>The medicines are neatly and safely organised by day and time of day.</li>
+                                </ul>
+                                <p>That way, it's easier that medicines are being taken as intended by the Doctor</p>
+                                <textarea class="form-control" data-ng-model="vm.document.Benefits" placeholder="Benefits"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+                         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+                         data-jarvis-widget="">
+
+                        <header>
+                            <h2>How can you take up our weekly medicines packing service?</h2>
+                        </header>
+
+                        <div>
+                            <div class="widget-body">
+                               
+                                <ol>
+                                    <li>Every week your pharmacist can arrange all the medicines into a &quot;Medicine Pack&quot;.</li>
+                                    <li>Talk to us about the service.</li>
+                                    <li>Pick up the weekly medicines pack and enjoy better health without the hassle</li>
+                                </ol>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <gc-pharmacist-recommendations disable="recommendationsDisable" name="pharmacistRecommendations"
+                                                   pharmacist="vm.document.PSProgramModel.Pharmacist"
+                                                   recommendations="vm.document.PSProgramModel.Recommendations.Recommendation"
+                                                   actions="vm.document.Actions.Action"
+                                                   show-other="false"
+                                                   allow-recommendations="DoctorReferral,ReportToDoctor,BloodPressureMonitoring,MedicinesAdherence,WeeklyMedicinesPack,HomeMedicinesReview,WeightRecord"></gc-pharmacist-recommendations>
+                </div>
+            </div>
+
+          
+
+        </section>
+
+    </div>
+</form>
+<!-- END MAIN CONTENT -->

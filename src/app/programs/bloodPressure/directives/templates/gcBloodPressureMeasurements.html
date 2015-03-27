@@ -1,0 +1,60 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Measurements
+        </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <div>
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section>
+                                <table class="table table-bordered table-hover smart-form has-tickbox checkbox-fix">
+                                    <thead>
+                                        <tr>
+                                            <th>Plot</th>
+                                            <th>Record Date</th>
+                                            <th>Systolic</th>
+                                            <th>Diastolic</th>
+                                            <th>Heart Rate</th>
+                                            <th>Notes</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-ng-repeat="measurement in AverageMeasurements">
+                                            <td>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" data-ng-model="measurement.Plot" data-ng-change="plotChange()" name="checkbox-inline">
+                                                    <i></i>
+                                                </label>
+                                            </td>
+
+                                            <td data-ng-bind="measurement.RecordDate | date:'dd/MM/yyyy'"></td>
+                                            <td data-ng-bind="measurement.SystolicAvr"></td>
+                                            <td data-ng-bind="measurement.DiastolicAvr"></td>
+                                            <td data-ng-bind="measurement.HeartRate"></td>
+                                            <td data-ng-bind="measurement.Notes"></td>
+                                            <td class="text-center">
+                                                <i class="glyphicon glyphicon-trash action-icon" data-ng-click="remove($event);"></i>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2> Screening Measurement and Assessment <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color:#d9534f;" ng-show="{{name}}.$invalid"></i> </h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+   
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>What conditions do you have, if any?*</h2>
+
+                            <div class="smart-form">
+                                <div class="inline-group">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox-inline" data-ng-model="coronaryHeartCondition['@Selected']" data-ng-true-value="true" data-ng-false-value="false">
+                                        <i></i>Coronary heart disease
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox-inline" data-ng-model="diabetesCondition['@Selected']" data-ng-true-value="true" data-ng-false-value="false">
+                                        <i></i>Diabetes
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox-inline" data-ng-model="chronicKidneyDiseaseCondition['@Selected']" data-ng-true-value="true" data-ng-false-value="false">
+                                        <i></i>Chronic kidney disease
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox-inline" data-ng-model="proteinuriaCondition['@Selected']" data-ng-true-value="true" data-ng-false-value="false">
+                                        <i></i>Proteinuria
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox-inline" data-ng-model="strokeTiaCondition['@Selected']" data-ng-true-value="true" data-ng-false-value="false">
+                                        <i></i>Stroke/TIA
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="smart-form mar-top">
+                                <div class="inline-group">
+                                    
+                                    <label class="input col-md-9" data-ng-snow="otherContidion == true">
+                                        Other, please state:
+                                        <input type="text" placeholder="Other conditions" data-ng-model="patientHistory.OtherConditions">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mar-top">* Target blood pressure for patients with these conditions is &lt;130/80 where possible</div>
+
+                            <div class="row mar-top">
+                                <div class="col-md-12">
+                                    <gc-blood-pressure-assessment systolic-average="SystolicAverage" diastolic-average="DiastolicAverage"></gc-blood-pressure-assessment>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h2>Your blood pressure measurement was:</h2>
+                            <div class="form-group">
+                                <button class="btn btn-labeled btn-success" data-ng-disabled="IsNewRecordsEnabled" data-ng-click="add()"><span class="btn-label"><i class="glyphicon glyphicon-plus"></i></span>Add</button>
+                                <button class="btn btn-labeled btn-primary" data-ng-disabled="!IsNewRecordsEnabled" data-ng-click="save()"><span class="btn-label"><i class="glyphicon glyphicon-floppy-save"></i></span>Save</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-3">Left Arm</div>
+                                        <div class="col-md-3">Right Arm</div>
+                                        <div class="col-md-3">Average</div>
+                                    </div>
+                                    <div class="row mar-top">
+                                        <div class="col-md-3">Systolic (mmHg)</div>
+                                        <div class="col-md-3">
+                                            <!--Use $parent. for model because of tooltip-->
+                                            <!--data-ng-required="$parent.NewSystolicRightRecord"-->
+                                            <!--data-ng-required="$parent.NewSystolicLeftRecord"-->
+                                            <!--ui-validate="'$parent.systolicValidation()'"-->
+                                            <input type="number" class="form-control" name="newSystolicLeftRecord" data-ng-model="$parent.NewSystolicLeftRecord"
+                                                   data-ng-class="{'error': {{name}}.newSystolicLeftRecord.$invalid }"
+                                                   data-ng-disabled="!IsNewRecordsEnabled" data-tooltip-placement="top" data-tooltip="Enter value between 5 and 300"
+                                                   data-ng-required="!$parent.NewSystolicRightRecord && IsNewRecordsEnabled"
+                                                   shown-validation />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" name="newSystolicRightRecord" data-ng-model="$parent.NewSystolicRightRecord"
+                                                   data-ng-class="{'error': {{name}}.newSystolicRightRecord.$invalid }"
+                                                   data-ng-disabled="!IsNewRecordsEnabled" data-tooltip-placement="top" data-tooltip="Enter value between 5 and 300"
+                                                   data-ng-required="!$parent.NewSystolicLeftRecord && IsNewRecordsEnabled"
+                                                   shown-validation />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" disabled="disabled" data-ng-model="SystolicAverage" />
+                                        </div>
+
+                                    </div>
+                                    <div class="row mar-top">
+                                        <div class="col-md-9 col-md-offset-3">
+                                            <gc-horizontal-gauge type="systolic" measurement="{{ SystolicAverage }}" max="300"></gc-horizontal-gauge>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mar-top">
+                                        <div class="col-md-3">Diastolic (mmHg)</div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" name="newDiastolicLeftRecord" data-ng-model="$parent.NewDiastolicLeftRecord"
+                                                   data-ng-disabled="!IsNewRecordsEnabled" data-tooltip-placement="top" data-tooltip="Optionally enter value between 5 and 300"
+                                                   data-ng-class="{'error': {{name}}.newDiastolicLeftRecord.$invalid }"
+                                                   data-ng-required="!$parent.NewDiastolicRightRecord && IsNewRecordsEnabled"
+                                                   shown-validation />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" name="newDiastolicRightRecord" data-ng-model="$parent.NewDiastolicRightRecord"
+                                                   data-ng-disabled="!IsNewRecordsEnabled" data-tooltip-placement="top" data-tooltip="Optionally enter value between 5 and 300"
+                                                   data-ng-class="{'error': {{name}}.newDiastolicRightRecord.$invalid }"
+                                                   data-ng-required="!$parent.NewDiastolicLeftRecord && IsNewRecordsEnabled"
+                                                   shown-validation />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="number" class="form-control" disabled="disabled" data-ng-model="DiastolicAverage" />
+                                        </div>
+                                    </div>
+                                    <div class="row mar-top">
+                                        <div class="col-md-9 col-md-offset-3">
+                                            <gc-horizontal-gauge type="diastolic" measurement="{{ DiastolicAverage }}" max="300"></gc-horizontal-gauge>
+                                        </div>
+                                    </div>
+                                    <div class="row mar-top">
+                                        <div class="col-md-3">Heart Rate (bpm)</div>
+                                        <div class="col-md-offset-6 col-md-3">
+                                            <input type="number" class="form-control" name="newHeartRateRecord" data-ng-model="$parent.NewHeartRateRecord" min="5" max="300"
+                                                   data-ng-disabled="!IsNewRecordsEnabled" data-tooltip="Enter value between 5 and 300"
+                                                   data-ng-class="{'error': {{name}}.newHeartRateRecord.$invalid }"
+                                                   shown-validation required />
+                                        </div>
+                                    </div>
+                                    <div class="row mar-top">
+                                        <div class="col-md-9 col-md-offset-3">
+                                            <gc-horizontal-gauge type="heartRate" measurement="{{ NewHeartRateRecord }}" max="300"></gc-horizontal-gauge>
+                                        </div>
+                                    </div>
+                                    <div class="row mar-top">
+                                        <div class="col-md-3">Date of Measurement</div>
+                                        <div class="col-md-offset-6 col-md-3">
+                                            <div class="input-group">
+                                                <input type="text" data-ng-disabled="!IsNewRecordsEnabled" name="newMeasurementRecordDate" placeholder="Select a date"
+                                                       data-ng-model="NewMeasurementRecordDate" class="form-control" date-format="dd/mm/yy" gc-datepicker shown-validation required
+                                                       data-ng-class="{'error': {{name}}.newMeasurementRecordDate.$invalid }" />
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

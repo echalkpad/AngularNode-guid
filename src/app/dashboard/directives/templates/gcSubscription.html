@@ -1,0 +1,72 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            GuildCare Subscription Status
+        </h2>
+    </header>
+
+    <div class="dashboard-widget">
+
+        <div class="widget-body">
+
+            <div class="row">
+                <div class="col-xs-8">
+                    <h3>Current Subscription Expiry:</h3>
+                </div>
+                <div class="col-xs-2">
+                    <h3 style="font-weight: bold;" data-ng-bind="subscription.Expiry | date:'dd/MM/yyyy'"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h4>Guild Member:</h4>
+                </div>
+                <div class="col-xs-2">
+                    <h4><i class="fa" data-ng-class="{'fa-check text-success': subscription.GuildCareMember, 'fa-ban text-danger': !subscription.GuildCareMember}"></i></h4>
+                </div>
+            </div>
+            <div class="row-space"></div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h4>GuildCare:</h4>
+                </div>
+                <div class="col-xs-2">
+                    <h4><i class="fa" data-ng-class="{'fa-check text-success': (subscription.Modules.indexOf('GuildCare') >= 0), 'fa-ban text-danger': (subscription.Modules.indexOf('GuildCare') < 0)}"></i></h4>
+                    
+                </div>
+            </div>
+            <div class="row-space"></div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h4>MemoCare:</h4>
+                </div>
+                <div class="col-xs-2">                    
+                    <h4><i class="fa" data-ng-class="{'fa-check text-success': (subscription.Modules.indexOf('MemoCare') >= 0), 'fa-ban text-danger': (subscription.Modules.indexOf('MemoCare') < 0)}"></i>
+                    </h4>
+                </div>
+            </div>
+            <div class="row-space"></div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h4>GuildSmart:</h4>
+                </div>
+                <div class="col-xs-2">
+                    <h4><i class="fa" data-ng-class="{'fa-check text-success': (subscription.Modules.indexOf('GuildSmart') >= 0), 'fa-ban text-danger': (subscription.Modules.indexOf('GuildSmart') < 0)}"></i>
+                    </h4>
+
+                </div>
+            </div>
+            <div class="row row-space">
+                <div class="col-xs-12 text-center">
+                    <a href="javascript://">Click here to change your subscription </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

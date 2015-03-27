@@ -1,0 +1,58 @@
+﻿<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false"
+     data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false"
+     data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2>
+            Let's watch a quick video that demonstrates the correct way to use your inhaler<i class="fa fa-lg fa-fw fa-exclamation-triangle"
+                                                                                              style="color:#d9534f;" ng-show="{{name}}.$invalid"></i>
+        </h2>
+    </header>
+
+    <div>
+        <div class="widget-body">
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <section>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group" ng-class="{ 'has-error': {{name}}.inhalerType.$invalid }">
+                                    <label>Select Inhaler Type:</label>
+
+                                    <div class="clearfix"></div>
+                                    <ui-select name="inhalerType" data-ng-model="asthmaAttributes['@InhalerType']" theme="select2" style="width: 100%;" required>
+                                        <ui-select-match placeholder="Select Inhaler Type...">{{$select.selected}}</ui-select-match>
+                                        <ui-select-choices repeat="inhalerType in inhalerTypeList | filter:$select.search">
+                                            {{inhalerType}}
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="">
+                                    <iframe data-ng-show="asthmaAttributes['@InhalerType'] === 'Accuhaler'" src="//player.vimeo.com/video/28492398" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe data-ng-show="asthmaAttributes['@InhalerType'] === 'Handihaler'" src="//player.vimeo.com/video/28496052" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe data-ng-show="asthmaAttributes['@InhalerType'] === 'Metered Dose WITH a spacer'" src="//player.vimeo.com/video/28435680" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    <iframe data-ng-show="asthmaAttributes['@InhalerType'] === 'Metered Dose WITHOUT a spacer' || asthmaAttributes['@InhalerType'] === ''" src="//player.vimeo.com/video/28438994" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    
+                                </div>
+                                <p>
+                                    <a target="_blank" data-ng-href="{{InhalerVideoLink}}">click here for more info</a>
+                                </p>
+                                <p>Reproduced with permission from the National Asthma Council Australia</p>
+                            </div>
+                        </div>
+                    </section>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>

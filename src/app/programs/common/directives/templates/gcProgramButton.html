@@ -1,0 +1,4 @@
+<div>
+    <a data-ng-class="{ 'btn btn-primary btn-case': (qualification.ProgramDocumentId && !asLink), 'btn btn-success btn-create-case': (!qualification.ProgramDocumentId && !asLink) }" data-ng-click="defaultClick()" data-ng-href="/#/patient/{{qualification.PatientId}}/{{ qualification.programIdLink }}/{{qualification.ProgramDocumentId || 'new'}}/{{qualification.PatientQualificationId}}">{{ qualification.ProgramDocumentId || 'Create'  }}</a>    
+    <a data-ng-if="!qualification.ProgramDocumentId && !asLink" data-ng-hide="hideDecline" href-void="" data-ng-click="decline()" class="btn btn-danger">Decline</a>
+</div>

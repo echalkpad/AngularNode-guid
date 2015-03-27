@@ -1,0 +1,69 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+         data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+         data-jarvis-widget="">
+
+        <header>
+            <h2> Follow Up Options <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color:#d9534f;"
+                                    ng-show="{{name}}.$invalid"></i></h2>
+        </header>
+
+        <div>
+
+            <div class="widget-body">
+
+                <div style="text-align: right" ng-show="{{name}}.$invalid">
+                    <span class="label label-danger">Section not completed</span>
+                </div>
+
+                <div ng-form="{{name}}" novalidate>
+                    <fieldset>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label" for="smsReminders"></label>
+
+                                <div class="form-group">
+                                    <input type="checkbox" name="smsReminders" ng-model="smsReminders"
+                                           id="smsReminders">&nbsp;SMS
+                                    Reminders
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label" for="smsNumber"></label>
+
+                                <div class="form-group"
+                                     ng-class="{ 'has-error': {{name}}.smsNumber.$invalid }">
+                                    <input type="text" placeholder="Mobile Number" name="smsNumber" id="smsNumber"
+                                           class="form-control input-md" ng-model="mobileNumber"
+                                           ng-required="smsReminders">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label" for="followUpCall"></label>
+
+                                <div class="form-group">
+                                    <input type="checkbox" ng-model="followUpCall" name="followUpCall"
+                                           id="followUpCall">&nbsp;Follow-up
+                                    Call
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="control-label" for="phoneNumber"></label>
+
+                                <div class="form-group" ng-class="{ 'has-error': {{name}}.phoneNumber.$invalid }">
+                                    <input type="text" placeholder="Telephone Number" name="phoneNumber"
+                                           id="phoneNumber"
+                                           class="form-control input-md" ng-model="phoneNumber"
+                                           ng-required="followUpCall">
+                                </div>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,121 @@
+<div class="jarviswidget jarviswidget-color-blueDark" data-widget-editbutton="false" data-widget-colorbutton="false"
+     data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-color="darken"
+     data-jarvis-widget="">
+
+    <header>
+        <h2> Patient Details <i class="fa fa-lg fa-fw fa-exclamation-triangle" style="color:#d9534f;"
+                                ng-show="{{name}}.$invalid"></i></h2>
+    </header>
+
+    <div>
+
+        <div class="widget-body">
+
+            <!--<div style="text-align: right" ng-show="{{name}}.$invalid">-->
+            <!--<span class="label label-danger" ng-show="{{name}}.$invalid">Section not completed</span>-->
+            <!--</div>-->
+
+            <div ng-form="{{name}}" novalidate>
+                <fieldset>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.firstname.$invalid }">
+                                <input type="text" class="form-control input-md" placeholder="First Name"
+                                       name="firstname"
+                                       ng-model="patient.FirstName" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.lastname.$invalid }">
+                                <input type="text" placeholder="Last Name" name="lastname"
+                                       class="form-control input-md"
+                                       ng-model="patient.LastName" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.address1.$invalid }">
+                                <input type="text" class="form-control input-md" placeholder="Address Line 1"
+                                       name="address1"
+                                       ng-model="patient.PatientAddressLine1" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.address2.$invalid }">
+                                <input type="text" placeholder="Address Line 2" name="address2"
+                                       class="form-control input-md"
+                                       ng-model="patient.PatientAddressLine2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.suburb.$invalid }">
+                                <input type="text" placeholder="Suburb" name="suburb" class="form-control input-md"
+                                       ng-model="patient.PatientSuburb" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.postcode.$invalid }">
+                                <input type="text" placeholder="Postcode" name="postcode"
+                                       class="form-control input-md"
+                                       ng-model="patient.PatientPostcode" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.state.$invalid }">
+                                <select class="form-control input-md" placeholder="State" name="state"
+                                        ng-model="patient.PatientState" required>
+                                    <option>NSW</option>
+                                    <option>QLD</option>
+                                    <option>WA</option>
+                                    <option>VIC</option>
+                                    <option>NT</option>
+                                    <option>SA</option>
+                                    <option>TAS</option>
+                                    <option>ACT</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.dateOfBirth.$invalid }">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input gc-validation-rule="dateOfBirth" type='text' gc-datepicker
+                                           class="form-control input-md" placeholder="Date Of Birth"
+                                           name="dateOfBirth" ng-model="patient.DateOfBirth"
+                                           data-date-format="DD/MM/YYYY" required/>
+                                            <span class="input-group-addon"><span
+                                                    class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.gender.$invalid }">
+                                <select class="form-control input-md" placeholder="Gender" name="gender"
+                                        ng-model="patient.Gender" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4" ng-hide="{{displayEmail === 'false'}}">
+                            <div class="form-group" ng-class="{ 'has-error': {{name}}.email.$invalid }">
+                                <input type="email" placeholder="Email" name="email" class="form-control input-md"
+                                       ng-model="patient.EmailAddress" ng-required="{{displayEmail !== 'false'}}">
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
